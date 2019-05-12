@@ -1,1 +1,1 @@
-# intake-esm-datastore
+# Intake-esm Datastore
