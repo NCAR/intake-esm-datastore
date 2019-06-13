@@ -1,0 +1,24 @@
+name: {{ collection_name }}
+collection_type: {{ collection_type }}
+data_sources:
+  {% for activity_id, activity_vals in activities.items() %}
+  {% for institute, institute_vals in activity_vals.items() %}
+  {% for model in institute_vals %}
+  {{ model }}-{{ activity_id }}:
+    locations:
+      - name: {{ model }}-{{ activity_id }}-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: {{ root_dir }}/{{ activity_id }}/{{ institute }}/{{ model }}
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: {{ activity_id }}
+      institute: {{ institute }}
+
+  {% endfor %}
+  {% endfor %}
+  {% endfor %}
+
