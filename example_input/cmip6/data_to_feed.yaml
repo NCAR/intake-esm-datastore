@@ -1,0 +1,70 @@
+activities:
+  AerChemMIP:
+    NCAR:
+    - CESM2-WACCM
+  CFMIP:
+    NCAR:
+    - CESM2
+  CMIP:
+    AWI:
+    - AWI-CM-1-1-MR
+    BCC:
+    - BCC-ESM1
+    - BCC-CSM2-MR
+    CAS:
+    - FGOALS-f3-L
+    CCCma:
+    - CanESM5
+    CNRM-CERFACS:
+    - CNRM-CM6-1
+    - CNRM-ESM2-1
+    E3SM-Project:
+    - E3SM-1-0
+    EC-Earth-Consortium:
+    - EC-Earth3-LR
+    - EC-Earth3
+    IPSL:
+    - IPSL-CM6A-LR
+    MIROC:
+    - MIROC6
+    MOHC:
+    - UKESM1-0-LL
+    MRI:
+    - MRI-ESM2-0
+    NASA-GISS:
+    - GISS-E2-1-H
+    - GISS-E2-1-G
+    NCAR:
+    - CESM2-WACCM
+    - CESM2
+    NOAA-GFDL:
+    - GFDL-AM4
+    - GFDL-CM4
+    SNU:
+    - SAM0-UNICON
+  LS3MIP:
+    NCAR:
+    - CESM2
+  LUMIP:
+    NCAR:
+    - CESM2
+  PAMIP:
+    NCAR:
+    - CESM2
+  ScenarioMIP:
+    BCC:
+    - BCC-CSM2-MR
+    CCCma:
+    - CanESM5
+    CNRM-CERFACS:
+    - CNRM-CM6-1
+    - CNRM-ESM2-1
+    IPSL:
+    - IPSL-CM6A-LR
+    MOHC:
+    - UKESM1-0-LL
+    MRI:
+    - MRI-ESM2-0
+collection_type: cmip6
+collection_name: GLADE-CMIP6
+root_dir: /glade/collections/cmip/CMIP6

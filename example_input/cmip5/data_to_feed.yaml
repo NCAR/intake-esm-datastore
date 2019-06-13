@@ -1,0 +1,129 @@
+collection_type: cmip5
+collection_name: GLADE-CMIP5
+products:
+  output:
+    CCCma:
+    - CanCM4
+    - CanESM2
+  output1:
+    BCC:
+    - bcc-csm1-1
+    - bcc-csm1-1-m
+    BNU:
+    - BNU-ESM
+    CCCma:
+    - CanCM4
+    - CanESM2
+    CMCC:
+    - CMCC-CMS
+    - CMCC-CM
+    - CMCC-CESM
+    CNRM-CERFACS:
+    - CNRM-CM5-2
+    - CNRM-CM5
+    CSIRO-BOM:
+    - ACCESS1.0
+    - ACCESS1-3
+    - ACCESS1-0
+    CSIRO-QCCCE:
+    - CSIRO-Mk3-6-0
+    FIO:
+    - FIO-ESM
+    - fio-esm
+    ICHEC:
+    - EC-EARTH
+    INM:
+    - inmcm4
+    INPE:
+    - HadGEM2-ES
+    IPSL:
+    - IPSL-CM5B-LR
+    - IPSL-CM5A-MR
+    - IPSL-CM5A-LR
+    LASG-CESS:
+    - FGOALS-g2
+    LASG-IAP:
+    - FGOALS-s2
+    MIROC:
+    - MIROC-ESM
+    - MIROC-ESM-CHEM
+    - MIROC4h
+    - MIROC5
+    MOHC:
+    - HadGEM2-ES
+    - HadGEM2-CC
+    - HadGEM2-A
+    - HadCM3
+    MPI-M:
+    - MPI-ESM-MR
+    - MPI-ESM-P
+    - MPI-ESM-LR
+    MRI:
+    - MRI-AGCM3-2S
+    - MRI-AGCM3-2H
+    - MRI-ESM1
+    - MRI-CGCM3
+    NASA-GISS:
+    - GISS-E2-H
+    - GISS-E2-R
+    - GISS-E2-R-CC
+    - GISS-E2-H-CC
+    NCAR:
+    - CCSM4
+    NCC:
+    - NorESM1-ME
+    - NorESM1-M
+    NIMR-KMA:
+    - HadGEM2-AO
+    NOAA-GFDL:
+    - GFDL-CM2p1
+    - GFDL-ESM2G
+    - GFDL-ESM2M
+    - GFDL-CM3
+    NSF-DOE-NCAR:
+    - CESM1-WACCM
+    - CESM1-CAM5
+    - CESM1-FASTCHEM
+    - CESM1-BGC
+    UNSW:
+    - CSIRO-Mk3L-1-2
+  output2:
+    CMCC:
+    - CMCC-CMS
+    - CMCC-CESM
+    ICHEC:
+    - EC-EARTH
+    INM:
+    - inmcm4
+    INPE:
+    - HadGEM2-ES
+    IPSL:
+    - IPSL-CM5B-LR
+    - IPSL-CM5A-MR
+    - IPSL-CM5A-LR
+    MIROC:
+    - MIROC-ESM
+    - MIROC4h
+    - MIROC5
+    MOHC:
+    - HadGEM2-ES
+    - HadCM3
+    MPI-M:
+    - MPI-ESM-LR
+    MRI:
+    - MRI-ESM1
+    - MRI-CGCM3
+    NASA-GISS:
+    - GISS-E2-H
+    - GISS-E2-R
+    NCAR:
+    - CCSM4
+    NCC:
+    - NorESM1-ME
+    - NorESM1-M
+    NSF-DOE-NCAR:
+    - CESM1-WACCM
+    - CESM1-CAM5
+    - CESM1-FASTCHEM
+    - CESM1-BGC
+root_dir: /glade/collections/cmip/cmip5/
