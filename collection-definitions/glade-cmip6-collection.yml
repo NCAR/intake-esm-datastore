@@ -1,0 +1,465 @@
+name: GLADE-CMIP6
+collection_type: cmip6
+data_sources:
+  CESM2-WACCM-AerChemMIP:
+    locations:
+      - name: CESM2-WACCM-AerChemMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/AerChemMIP/NCAR/CESM2-WACCM
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: AerChemMIP
+      institute: NCAR
+
+  CESM2-CFMIP:
+    locations:
+      - name: CESM2-CFMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CFMIP/NCAR/CESM2
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CFMIP
+      institute: NCAR
+
+  AWI-CM-1-1-MR-CMIP:
+    locations:
+      - name: AWI-CM-1-1-MR-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/AWI/AWI-CM-1-1-MR
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: AWI
+
+  BCC-ESM1-CMIP:
+    locations:
+      - name: BCC-ESM1-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/BCC/BCC-ESM1
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: BCC
+
+  BCC-CSM2-MR-CMIP:
+    locations:
+      - name: BCC-CSM2-MR-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/BCC/BCC-CSM2-MR
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: BCC
+
+  FGOALS-f3-L-CMIP:
+    locations:
+      - name: FGOALS-f3-L-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/CAS/FGOALS-f3-L
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: CAS
+
+  CanESM5-CMIP:
+    locations:
+      - name: CanESM5-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/CCCma/CanESM5
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: CCCma
+
+  CNRM-CM6-1-CMIP:
+    locations:
+      - name: CNRM-CM6-1-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/CNRM-CERFACS/CNRM-CM6-1
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: CNRM-CERFACS
+
+  CNRM-ESM2-1-CMIP:
+    locations:
+      - name: CNRM-ESM2-1-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/CNRM-CERFACS/CNRM-ESM2-1
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: CNRM-CERFACS
+
+  E3SM-1-0-CMIP:
+    locations:
+      - name: E3SM-1-0-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/E3SM-Project/E3SM-1-0
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: E3SM-Project
+
+  EC-Earth3-LR-CMIP:
+    locations:
+      - name: EC-Earth3-LR-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3-LR
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: EC-Earth-Consortium
+
+  EC-Earth3-CMIP:
+    locations:
+      - name: EC-Earth3-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: EC-Earth-Consortium
+
+  IPSL-CM6A-LR-CMIP:
+    locations:
+      - name: IPSL-CM6A-LR-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/IPSL/IPSL-CM6A-LR
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: IPSL
+
+  MIROC6-CMIP:
+    locations:
+      - name: MIROC6-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/MIROC/MIROC6
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: MIROC
+
+  UKESM1-0-LL-CMIP:
+    locations:
+      - name: UKESM1-0-LL-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/MOHC/UKESM1-0-LL
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: MOHC
+
+  MRI-ESM2-0-CMIP:
+    locations:
+      - name: MRI-ESM2-0-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/MRI/MRI-ESM2-0
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: MRI
+
+  GISS-E2-1-H-CMIP:
+    locations:
+      - name: GISS-E2-1-H-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/NASA-GISS/GISS-E2-1-H
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: NASA-GISS
+
+  GISS-E2-1-G-CMIP:
+    locations:
+      - name: GISS-E2-1-G-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: NASA-GISS
+
+  CESM2-WACCM-CMIP:
+    locations:
+      - name: CESM2-WACCM-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/NCAR/CESM2-WACCM
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: NCAR
+
+  CESM2-CMIP:
+    locations:
+      - name: CESM2-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/NCAR/CESM2
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: NCAR
+
+  GFDL-AM4-CMIP:
+    locations:
+      - name: GFDL-AM4-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/NOAA-GFDL/GFDL-AM4
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: NOAA-GFDL
+
+  GFDL-CM4-CMIP:
+    locations:
+      - name: GFDL-CM4-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/NOAA-GFDL/GFDL-CM4
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: NOAA-GFDL
+
+  SAM0-UNICON-CMIP:
+    locations:
+      - name: SAM0-UNICON-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/SNU/SAM0-UNICON
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: CMIP
+      institute: SNU
+
+  CESM2-LS3MIP:
+    locations:
+      - name: CESM2-LS3MIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/LS3MIP/NCAR/CESM2
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: LS3MIP
+      institute: NCAR
+
+  CESM2-LUMIP:
+    locations:
+      - name: CESM2-LUMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/LUMIP/NCAR/CESM2
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: LUMIP
+      institute: NCAR
+
+  CESM2-PAMIP:
+    locations:
+      - name: CESM2-PAMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/PAMIP/NCAR/CESM2
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: PAMIP
+      institute: NCAR
+
+  BCC-CSM2-MR-ScenarioMIP:
+    locations:
+      - name: BCC-CSM2-MR-ScenarioMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/ScenarioMIP/BCC/BCC-CSM2-MR
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: ScenarioMIP
+      institute: BCC
+
+  CanESM5-ScenarioMIP:
+    locations:
+      - name: CanESM5-ScenarioMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/ScenarioMIP/CCCma/CanESM5
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: ScenarioMIP
+      institute: CCCma
+
+  CNRM-CM6-1-ScenarioMIP:
+    locations:
+      - name: CNRM-CM6-1-ScenarioMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-CM6-1
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: ScenarioMIP
+      institute: CNRM-CERFACS
+
+  CNRM-ESM2-1-ScenarioMIP:
+    locations:
+      - name: CNRM-ESM2-1-ScenarioMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: ScenarioMIP
+      institute: CNRM-CERFACS
+
+  IPSL-CM6A-LR-ScenarioMIP:
+    locations:
+      - name: IPSL-CM6A-LR-ScenarioMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: ScenarioMIP
+      institute: IPSL
+
+  UKESM1-0-LL-ScenarioMIP:
+    locations:
+      - name: UKESM1-0-LL-ScenarioMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/ScenarioMIP/MOHC/UKESM1-0-LL
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: ScenarioMIP
+      institute: MOHC
+
+  MRI-ESM2-0-ScenarioMIP:
+    locations:
+      - name: MRI-ESM2-0-ScenarioMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/ScenarioMIP/MRI/MRI-ESM2-0
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      product: ScenarioMIP
+      institute: MRI
+
