@@ -12,8 +12,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: AerChemMIP
-      institute: NCAR
+      activity_id: AerChemMIP
+      institution_id: NCAR
 
   CESM2-CFMIP:
     locations:
@@ -26,8 +26,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CFMIP
-      institute: NCAR
+      activity_id: CFMIP
+      institution_id: NCAR
 
   AWI-CM-1-1-MR-CMIP:
     locations:
@@ -40,8 +40,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: AWI
+      activity_id: CMIP
+      institution_id: AWI
 
   BCC-ESM1-CMIP:
     locations:
@@ -54,8 +54,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: BCC
+      activity_id: CMIP
+      institution_id: BCC
 
   BCC-CSM2-MR-CMIP:
     locations:
@@ -68,8 +68,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: BCC
+      activity_id: CMIP
+      institution_id: BCC
 
   FGOALS-f3-L-CMIP:
     locations:
@@ -82,8 +82,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: CAS
+      activity_id: CMIP
+      institution_id: CAS
 
   CanESM5-CMIP:
     locations:
@@ -96,8 +96,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: CCCma
+      activity_id: CMIP
+      institution_id: CCCma
 
   CNRM-CM6-1-CMIP:
     locations:
@@ -110,8 +110,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: CNRM-CERFACS
+      activity_id: CMIP
+      institution_id: CNRM-CERFACS
 
   CNRM-ESM2-1-CMIP:
     locations:
@@ -124,8 +124,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: CNRM-CERFACS
+      activity_id: CMIP
+      institution_id: CNRM-CERFACS
 
   E3SM-1-0-CMIP:
     locations:
@@ -138,8 +138,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: E3SM-Project
+      activity_id: CMIP
+      institution_id: E3SM-Project
 
   EC-Earth3-LR-CMIP:
     locations:
@@ -152,8 +152,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: EC-Earth-Consortium
+      activity_id: CMIP
+      institution_id: EC-Earth-Consortium
 
   EC-Earth3-CMIP:
     locations:
@@ -166,8 +166,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: EC-Earth-Consortium
+      activity_id: CMIP
+      institution_id: EC-Earth-Consortium
 
   IPSL-CM6A-LR-CMIP:
     locations:
@@ -180,8 +180,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: IPSL
+      activity_id: CMIP
+      institution_id: IPSL
 
   MIROC6-CMIP:
     locations:
@@ -194,8 +194,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: MIROC
+      activity_id: CMIP
+      institution_id: MIROC
 
   UKESM1-0-LL-CMIP:
     locations:
@@ -208,8 +208,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: MOHC
+      activity_id: CMIP
+      institution_id: MOHC
 
   MRI-ESM2-0-CMIP:
     locations:
@@ -222,8 +222,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: MRI
+      activity_id: CMIP
+      institution_id: MRI
 
   GISS-E2-1-H-CMIP:
     locations:
@@ -236,8 +236,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: NASA-GISS
+      activity_id: CMIP
+      institution_id: NASA-GISS
 
   GISS-E2-1-G-CMIP:
     locations:
@@ -250,8 +250,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: NASA-GISS
+      activity_id: CMIP
+      institution_id: NASA-GISS
 
   CESM2-WACCM-CMIP:
     locations:
@@ -264,8 +264,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: NCAR
+      activity_id: CMIP
+      institution_id: NCAR
 
   CESM2-CMIP:
     locations:
@@ -278,8 +278,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: NCAR
+      activity_id: CMIP
+      institution_id: NCAR
 
   GFDL-AM4-CMIP:
     locations:
@@ -292,8 +292,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: NOAA-GFDL
+      activity_id: CMIP
+      institution_id: NOAA-GFDL
 
   GFDL-CM4-CMIP:
     locations:
@@ -306,8 +306,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: NOAA-GFDL
+      activity_id: CMIP
+      institution_id: NOAA-GFDL
 
   SAM0-UNICON-CMIP:
     locations:
@@ -320,8 +320,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: CMIP
-      institute: SNU
+      activity_id: CMIP
+      institution_id: SNU
 
   CESM2-LS3MIP:
     locations:
@@ -334,8 +334,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: LS3MIP
-      institute: NCAR
+      activity_id: LS3MIP
+      institution_id: NCAR
 
   CESM2-LUMIP:
     locations:
@@ -348,8 +348,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: LUMIP
-      institute: NCAR
+      activity_id: LUMIP
+      institution_id: NCAR
 
   CESM2-PAMIP:
     locations:
@@ -362,8 +362,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: PAMIP
-      institute: NCAR
+      activity_id: PAMIP
+      institution_id: NCAR
 
   BCC-CSM2-MR-ScenarioMIP:
     locations:
@@ -376,8 +376,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: ScenarioMIP
-      institute: BCC
+      activity_id: ScenarioMIP
+      institution_id: BCC
 
   CanESM5-ScenarioMIP:
     locations:
@@ -390,8 +390,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: ScenarioMIP
-      institute: CCCma
+      activity_id: ScenarioMIP
+      institution_id: CCCma
 
   CNRM-CM6-1-ScenarioMIP:
     locations:
@@ -404,8 +404,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: ScenarioMIP
-      institute: CNRM-CERFACS
+      activity_id: ScenarioMIP
+      institution_id: CNRM-CERFACS
 
   CNRM-ESM2-1-ScenarioMIP:
     locations:
@@ -418,8 +418,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: ScenarioMIP
-      institute: CNRM-CERFACS
+      activity_id: ScenarioMIP
+      institution_id: CNRM-CERFACS
 
   IPSL-CM6A-LR-ScenarioMIP:
     locations:
@@ -432,8 +432,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: ScenarioMIP
-      institute: IPSL
+      activity_id: ScenarioMIP
+      institution_id: IPSL
 
   UKESM1-0-LL-ScenarioMIP:
     locations:
@@ -446,8 +446,8 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: ScenarioMIP
-      institute: MOHC
+      activity_id: ScenarioMIP
+      institution_id: MOHC
 
   MRI-ESM2-0-ScenarioMIP:
     locations:
@@ -460,6 +460,6 @@ data_sources:
 
     extra_attributes:
       mip_era: CMIP6
-      product: ScenarioMIP
-      institute: MRI
+      activity_id: ScenarioMIP
+      institution_id: MRI
 
