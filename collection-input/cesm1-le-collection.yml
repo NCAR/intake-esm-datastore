@@ -21,6 +21,15 @@ data_sources:
             member_id: 0
             has_ocean_bgc: True
             year_offset: 1448
+          - case: e.e11.E1850C5CN.f09_g16.001
+            sequence_order: 0
+            member_id: 0
+            has_ocean_bgc: False 
+          - case: f.e11.F1850C5CN.f09_f09.001
+            sequence_order: 0
+            member_id: 0
+            has_ocean_bgc: False
+          
 
   20C:
     locations:
@@ -237,6 +246,47 @@ data_sources:
             member_id: 105
             has_ocean_bgc: True
             ctrl_branch_year: 402
+          - case: b.e11.B20TRC5CNBDRD.f09_g16.OIC.001d
+            sequence_order: 0
+            member_id: 1
+            has_ocean_bgc: False
+          - case: b.e11.B20TRC5CNBDRD.f09_g16.OIC.002
+            sequence_order: 0
+            member_id: 2
+            has_ocean_bgc: False
+          - case: b.e11.B20TRC5CNBDRD.f09_g16.OIC.003
+            sequence_order: 0 
+            member_id: 3
+            has_ocean_bgc: False 
+          - case: b.e11.B20TRC5CNBDRD.f09_g16.OIC.004
+            sequence_order: 0
+            member_id: 4
+            has_ocean_bgc: False 
+          - case: b.e11.B20TRC5CNBDRD.f09_g16.OIC.005
+            sequence_order: 0 
+            member_id: 5
+            has_ocean_bgc: False 
+          - case: b.e11.B20TRC5CNBDRD.f09_g16.OIC.006
+            sequence_order: 0
+            member_id: 6
+            has_ocean_bgc: False 
+          - case: b.e11.B20TRC5CNBDRD.f09_g16.OIC.007
+            sequence_order: 0
+            member_id: 7
+            has_ocean_bgc: False 
+          - case: b.e11.B20TRC5CNBDRD.f09_g16.OIC.008
+            sequence_order: 0
+            member_id: 8
+            has_ocean_bgc: False 
+          - case: b.e11.B20TRC5CNBDRD.f09_g16.OIC.009
+            sequence_order: 0
+            member_id: 9
+            has_ocean_bgc: False 
+          - case: b.e11.B20TRC5CNBDRD.f09_g16.OIC.010
+            sequence_order: 0
+            member_id: 10 
+            has_ocean_bgc: False 
+
   RCP85:
     locations:
       - name: GLADE
