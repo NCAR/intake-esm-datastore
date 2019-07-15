@@ -28,10 +28,12 @@ data_sources:
         loc_type: posix
         direct_access: True
         urlpath: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+        exclude_dirs: ['*/b.e11.B20TRC5CNBDRD.f09_g16.001.cam.h0.TS.192001-200512.nc']
       - name: HPSS
         loc_type: hsi
         direct_access: False
         urlpath: /CCSM/csm/CESM-CAM5-BGC-LE
+        exclude_dirs: ['*/b.e11.B20TRC5CNBDRD.f09_g16.001.cam.h0.TS.192001-200512.nc']
     extra_attributes:
         component_attrs:
           ocn:
