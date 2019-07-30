@@ -38,7 +38,7 @@ conda install -c conda-forge intake-esm
 Once ``intake-esm`` is installed, the ``intak-esm-builder`` CLI tool is available and ready to be used:
 
 ```console
-intake-esm-builder --help
+$ intake-esm-builder --help
 
 Usage: intake-esm-builder [OPTIONS]
 
@@ -65,5 +65,5 @@ To build a collection for CMIP6 data residing on NCAR's glade, you would need to
 the following:
 
 ```console
-intake-esm-builder -cdef GLADE-CMIP6 --overwrite-existing
+$ intake-esm-builder -cdef GLADE-CMIP6 --overwrite-existing
 ```

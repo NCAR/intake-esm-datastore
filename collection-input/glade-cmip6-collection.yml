@@ -43,6 +43,20 @@ data_sources:
       activity_id: CMIP
       institution_id: AWI
 
+  BCC-CSM2-MR-CMIP:
+    locations:
+      - name: BCC-CSM2-MR-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/BCC/BCC-CSM2-MR
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      activity_id: CMIP
+      institution_id: BCC
+
   BCC-ESM1-CMIP:
     locations:
       - name: BCC-ESM1-CMIP-catalog
@@ -57,19 +71,19 @@ data_sources:
       activity_id: CMIP
       institution_id: BCC
 
-  BCC-CSM2-MR-CMIP:
+  CAMS-CSM1-0-CMIP:
     locations:
-      - name: BCC-CSM2-MR-CMIP-catalog
+      - name: CAMS-CSM1-0-CMIP-catalog
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/CMIP6/CMIP/BCC/BCC-CSM2-MR
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/CAMS/CAMS-CSM1-0
         exclude_dirs: ['*/files/*', '*/latest/*']
         file_extension: .nc
 
     extra_attributes:
       mip_era: CMIP6
       activity_id: CMIP
-      institution_id: BCC
+      institution_id: CAMS
 
   FGOALS-f3-L-CMIP:
     locations:
@@ -141,6 +155,20 @@ data_sources:
       activity_id: CMIP
       institution_id: E3SM-Project
 
+  EC-Earth3-CMIP:
+    locations:
+      - name: EC-Earth3-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      activity_id: CMIP
+      institution_id: EC-Earth-Consortium
+
   EC-Earth3-LR-CMIP:
     locations:
       - name: EC-Earth3-LR-CMIP-catalog
@@ -155,12 +183,12 @@ data_sources:
       activity_id: CMIP
       institution_id: EC-Earth-Consortium
 
-  EC-Earth3-CMIP:
+  EC-Earth3-Veg-CMIP:
     locations:
-      - name: EC-Earth3-CMIP-catalog
+      - name: EC-Earth3-Veg-CMIP-catalog
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3-Veg
         exclude_dirs: ['*/files/*', '*/latest/*']
         file_extension: .nc
 
@@ -197,6 +225,20 @@ data_sources:
       activity_id: CMIP
       institution_id: MIROC
 
+  HadGEM3-GC31-LL-CMIP:
+    locations:
+      - name: HadGEM3-GC31-LL-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/MOHC/HadGEM3-GC31-LL
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      activity_id: CMIP
+      institution_id: MOHC
+
   UKESM1-0-LL-CMIP:
     locations:
       - name: UKESM1-0-LL-CMIP-catalog
@@ -225,20 +267,6 @@ data_sources:
       activity_id: CMIP
       institution_id: MRI
 
-  GISS-E2-1-H-CMIP:
-    locations:
-      - name: GISS-E2-1-H-CMIP-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/CMIP6/CMIP/NASA-GISS/GISS-E2-1-H
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      mip_era: CMIP6
-      activity_id: CMIP
-      institution_id: NASA-GISS
-
   GISS-E2-1-G-CMIP:
     locations:
       - name: GISS-E2-1-G-CMIP-catalog
@@ -253,12 +281,26 @@ data_sources:
       activity_id: CMIP
       institution_id: NASA-GISS
 
-  CESM2-WACCM-CMIP:
+  GISS-E2-1-H-CMIP:
     locations:
-      - name: CESM2-WACCM-CMIP-catalog
+      - name: GISS-E2-1-H-CMIP-catalog
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/CMIP6/CMIP/NCAR/CESM2-WACCM
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/NASA-GISS/GISS-E2-1-H
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      mip_era: CMIP6
+      activity_id: CMIP
+      institution_id: NASA-GISS
+
+  CESM2-CMIP:
+    locations:
+      - name: CESM2-CMIP-catalog
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/NCAR/CESM2
         exclude_dirs: ['*/files/*', '*/latest/*']
         file_extension: .nc
 
@@ -267,12 +309,12 @@ data_sources:
       activity_id: CMIP
       institution_id: NCAR
 
-  CESM2-CMIP:
+  CESM2-WACCM-CMIP:
     locations:
-      - name: CESM2-CMIP-catalog
+      - name: CESM2-WACCM-CMIP-catalog
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/CMIP6/CMIP/NCAR/CESM2
+        urlpath: /glade/collections/cmip/CMIP6/CMIP/NCAR/CESM2-WACCM
         exclude_dirs: ['*/files/*', '*/latest/*']
         file_extension: .nc
 
