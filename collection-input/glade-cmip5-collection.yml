@@ -1,9 +1,9 @@
 name: GLADE-CMIP5
 collection_type: cmip5
 data_sources:
-  CanCM4-output:
+  CCCma-CanCM4-output:
     locations:
-      - name: CanCM4-output-catalog
+      - name: GLADE-CCCma-CanCM4-output
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output/CCCma/CanCM4
@@ -15,9 +15,9 @@ data_sources:
       activity: CMIP5
       institute: CCCma
 
-  CanESM2-output:
+  CCCma-CanESM2-output:
     locations:
-      - name: CanESM2-output-catalog
+      - name: GLADE-CCCma-CanESM2-output
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output/CCCma/CanESM2
@@ -29,9 +29,9 @@ data_sources:
       activity: CMIP5
       institute: CCCma
 
-  bcc-csm1-1-output1:
+  BCC-bcc-csm1-1-output1:
     locations:
-      - name: bcc-csm1-1-output1-catalog
+      - name: GLADE-BCC-bcc-csm1-1-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/BCC/bcc-csm1-1
@@ -43,9 +43,9 @@ data_sources:
       activity: CMIP5
       institute: BCC
 
-  bcc-csm1-1-m-output1:
+  BCC-bcc-csm1-1-m-output1:
     locations:
-      - name: bcc-csm1-1-m-output1-catalog
+      - name: GLADE-BCC-bcc-csm1-1-m-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/BCC/bcc-csm1-1-m
@@ -57,9 +57,9 @@ data_sources:
       activity: CMIP5
       institute: BCC
 
-  BNU-ESM-output1:
+  BNU-BNU-ESM-output1:
     locations:
-      - name: BNU-ESM-output1-catalog
+      - name: GLADE-BNU-BNU-ESM-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/BNU/BNU-ESM
@@ -71,9 +71,9 @@ data_sources:
       activity: CMIP5
       institute: BNU
 
-  CanCM4-output1:
+  CCCma-CanCM4-output1:
     locations:
-      - name: CanCM4-output1-catalog
+      - name: GLADE-CCCma-CanCM4-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/CCCma/CanCM4
@@ -85,9 +85,9 @@ data_sources:
       activity: CMIP5
       institute: CCCma
 
-  CanESM2-output1:
+  CCCma-CanESM2-output1:
     locations:
-      - name: CanESM2-output1-catalog
+      - name: GLADE-CCCma-CanESM2-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/CCCma/CanESM2
@@ -99,37 +99,9 @@ data_sources:
       activity: CMIP5
       institute: CCCma
 
-  CMCC-CMS-output1:
+  CMCC-CMCC-CESM-output1:
     locations:
-      - name: CMCC-CMS-output1-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/CMCC/CMCC-CMS
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output1
-      activity: CMIP5
-      institute: CMCC
-
-  CMCC-CM-output1:
-    locations:
-      - name: CMCC-CM-output1-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/CMCC/CMCC-CM
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output1
-      activity: CMIP5
-      institute: CMCC
-
-  CMCC-CESM-output1:
-    locations:
-      - name: CMCC-CESM-output1-catalog
+      - name: GLADE-CMCC-CMCC-CESM-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/CMCC/CMCC-CESM
@@ -141,23 +113,37 @@ data_sources:
       activity: CMIP5
       institute: CMCC
 
-  CNRM-CM5-2-output1:
+  CMCC-CMCC-CM-output1:
     locations:
-      - name: CNRM-CM5-2-output1-catalog
+      - name: GLADE-CMCC-CMCC-CM-output1
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/CNRM-CERFACS/CNRM-CM5-2
+        urlpath: /glade/collections/cmip/cmip5/output1/CMCC/CMCC-CM
         exclude_dirs: ['*/files/*', '*/latest/*']
         file_extension: .nc
 
     extra_attributes:
       product: output1
       activity: CMIP5
-      institute: CNRM-CERFACS
+      institute: CMCC
 
-  CNRM-CM5-output1:
+  CMCC-CMCC-CMS-output1:
     locations:
-      - name: CNRM-CM5-output1-catalog
+      - name: GLADE-CMCC-CMCC-CMS-output1
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output1/CMCC/CMCC-CMS
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output1
+      activity: CMIP5
+      institute: CMCC
+
+  CNRM-CERFACS-CNRM-CM5-output1:
+    locations:
+      - name: GLADE-CNRM-CERFACS-CNRM-CM5-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/CNRM-CERFACS/CNRM-CM5
@@ -169,37 +155,23 @@ data_sources:
       activity: CMIP5
       institute: CNRM-CERFACS
 
-  ACCESS1.0-output1:
+  CNRM-CERFACS-CNRM-CM5-2-output1:
     locations:
-      - name: ACCESS1.0-output1-catalog
+      - name: GLADE-CNRM-CERFACS-CNRM-CM5-2-output1
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/CSIRO-BOM/ACCESS1.0
+        urlpath: /glade/collections/cmip/cmip5/output1/CNRM-CERFACS/CNRM-CM5-2
         exclude_dirs: ['*/files/*', '*/latest/*']
         file_extension: .nc
 
     extra_attributes:
       product: output1
       activity: CMIP5
-      institute: CSIRO-BOM
+      institute: CNRM-CERFACS
 
-  ACCESS1-3-output1:
+  CSIRO-BOM-ACCESS1-0-output1:
     locations:
-      - name: ACCESS1-3-output1-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/CSIRO-BOM/ACCESS1-3
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output1
-      activity: CMIP5
-      institute: CSIRO-BOM
-
-  ACCESS1-0-output1:
-    locations:
-      - name: ACCESS1-0-output1-catalog
+      - name: GLADE-CSIRO-BOM-ACCESS1-0-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/CSIRO-BOM/ACCESS1-0
@@ -211,9 +183,37 @@ data_sources:
       activity: CMIP5
       institute: CSIRO-BOM
 
-  CSIRO-Mk3-6-0-output1:
+  CSIRO-BOM-ACCESS1-3-output1:
     locations:
-      - name: CSIRO-Mk3-6-0-output1-catalog
+      - name: GLADE-CSIRO-BOM-ACCESS1-3-output1
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output1/CSIRO-BOM/ACCESS1-3
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output1
+      activity: CMIP5
+      institute: CSIRO-BOM
+
+  CSIRO-BOM-ACCESS1-output1:
+    locations:
+      - name: GLADE-CSIRO-BOM-ACCESS1-output1
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output1/CSIRO-BOM/ACCESS1
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output1
+      activity: CMIP5
+      institute: CSIRO-BOM
+
+  CSIRO-QCCCE-CSIRO-Mk3-6-0-output1:
+    locations:
+      - name: GLADE-CSIRO-QCCCE-CSIRO-Mk3-6-0-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/CSIRO-QCCCE/CSIRO-Mk3-6-0
@@ -225,9 +225,9 @@ data_sources:
       activity: CMIP5
       institute: CSIRO-QCCCE
 
-  FIO-ESM-output1:
+  FIO-FIO-ESM-output1:
     locations:
-      - name: FIO-ESM-output1-catalog
+      - name: GLADE-FIO-FIO-ESM-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/FIO/FIO-ESM
@@ -239,9 +239,9 @@ data_sources:
       activity: CMIP5
       institute: FIO
 
-  fio-esm-output1:
+  FIO-fio-esm-output1:
     locations:
-      - name: fio-esm-output1-catalog
+      - name: GLADE-FIO-fio-esm-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/FIO/fio-esm
@@ -253,9 +253,9 @@ data_sources:
       activity: CMIP5
       institute: FIO
 
-  EC-EARTH-output1:
+  ICHEC-EC-EARTH-output1:
     locations:
-      - name: EC-EARTH-output1-catalog
+      - name: GLADE-ICHEC-EC-EARTH-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/ICHEC/EC-EARTH
@@ -267,9 +267,9 @@ data_sources:
       activity: CMIP5
       institute: ICHEC
 
-  inmcm4-output1:
+  INM-inmcm4-output1:
     locations:
-      - name: inmcm4-output1-catalog
+      - name: GLADE-INM-inmcm4-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/INM/inmcm4
@@ -281,9 +281,9 @@ data_sources:
       activity: CMIP5
       institute: INM
 
-  HadGEM2-ES-output1:
+  INPE-HadGEM2-ES-output1:
     locations:
-      - name: HadGEM2-ES-output1-catalog
+      - name: GLADE-INPE-HadGEM2-ES-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/INPE/HadGEM2-ES
@@ -295,37 +295,9 @@ data_sources:
       activity: CMIP5
       institute: INPE
 
-  IPSL-CM5B-LR-output1:
+  IPSL-IPSL-CM5A-LR-output1:
     locations:
-      - name: IPSL-CM5B-LR-output1-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/IPSL/IPSL-CM5B-LR
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output1
-      activity: CMIP5
-      institute: IPSL
-
-  IPSL-CM5A-MR-output1:
-    locations:
-      - name: IPSL-CM5A-MR-output1-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/IPSL/IPSL-CM5A-MR
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output1
-      activity: CMIP5
-      institute: IPSL
-
-  IPSL-CM5A-LR-output1:
-    locations:
-      - name: IPSL-CM5A-LR-output1-catalog
+      - name: GLADE-IPSL-IPSL-CM5A-LR-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/IPSL/IPSL-CM5A-LR
@@ -337,9 +309,37 @@ data_sources:
       activity: CMIP5
       institute: IPSL
 
-  FGOALS-g2-output1:
+  IPSL-IPSL-CM5A-MR-output1:
     locations:
-      - name: FGOALS-g2-output1-catalog
+      - name: GLADE-IPSL-IPSL-CM5A-MR-output1
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output1/IPSL/IPSL-CM5A-MR
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output1
+      activity: CMIP5
+      institute: IPSL
+
+  IPSL-IPSL-CM5B-LR-output1:
+    locations:
+      - name: GLADE-IPSL-IPSL-CM5B-LR-output1
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output1/IPSL/IPSL-CM5B-LR
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output1
+      activity: CMIP5
+      institute: IPSL
+
+  LASG-CESS-FGOALS-g2-output1:
+    locations:
+      - name: GLADE-LASG-CESS-FGOALS-g2-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/LASG-CESS/FGOALS-g2
@@ -351,9 +351,9 @@ data_sources:
       activity: CMIP5
       institute: LASG-CESS
 
-  FGOALS-s2-output1:
+  LASG-IAP-FGOALS-s2-output1:
     locations:
-      - name: FGOALS-s2-output1-catalog
+      - name: GLADE-LASG-IAP-FGOALS-s2-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/LASG-IAP/FGOALS-s2
@@ -365,9 +365,9 @@ data_sources:
       activity: CMIP5
       institute: LASG-IAP
 
-  MIROC-ESM-output1:
+  MIROC-MIROC-ESM-output1:
     locations:
-      - name: MIROC-ESM-output1-catalog
+      - name: GLADE-MIROC-MIROC-ESM-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/MIROC/MIROC-ESM
@@ -379,9 +379,9 @@ data_sources:
       activity: CMIP5
       institute: MIROC
 
-  MIROC-ESM-CHEM-output1:
+  MIROC-MIROC-ESM-CHEM-output1:
     locations:
-      - name: MIROC-ESM-CHEM-output1-catalog
+      - name: GLADE-MIROC-MIROC-ESM-CHEM-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/MIROC/MIROC-ESM-CHEM
@@ -393,9 +393,9 @@ data_sources:
       activity: CMIP5
       institute: MIROC
 
-  MIROC4h-output1:
+  MIROC-MIROC4h-output1:
     locations:
-      - name: MIROC4h-output1-catalog
+      - name: GLADE-MIROC-MIROC4h-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/MIROC/MIROC4h
@@ -407,9 +407,9 @@ data_sources:
       activity: CMIP5
       institute: MIROC
 
-  MIROC5-output1:
+  MIROC-MIROC5-output1:
     locations:
-      - name: MIROC5-output1-catalog
+      - name: GLADE-MIROC-MIROC5-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/MIROC/MIROC5
@@ -421,51 +421,9 @@ data_sources:
       activity: CMIP5
       institute: MIROC
 
-  HadGEM2-ES-output1:
+  MOHC-HadCM3-output1:
     locations:
-      - name: HadGEM2-ES-output1-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/MOHC/HadGEM2-ES
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output1
-      activity: CMIP5
-      institute: MOHC
-
-  HadGEM2-CC-output1:
-    locations:
-      - name: HadGEM2-CC-output1-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/MOHC/HadGEM2-CC
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output1
-      activity: CMIP5
-      institute: MOHC
-
-  HadGEM2-A-output1:
-    locations:
-      - name: HadGEM2-A-output1-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/MOHC/HadGEM2-A
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output1
-      activity: CMIP5
-      institute: MOHC
-
-  HadCM3-output1:
-    locations:
-      - name: HadCM3-output1-catalog
+      - name: GLADE-MOHC-HadCM3-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/MOHC/HadCM3
@@ -477,37 +435,51 @@ data_sources:
       activity: CMIP5
       institute: MOHC
 
-  MPI-ESM-MR-output1:
+  MOHC-HadGEM2-A-output1:
     locations:
-      - name: MPI-ESM-MR-output1-catalog
+      - name: GLADE-MOHC-HadGEM2-A-output1
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/MPI-M/MPI-ESM-MR
+        urlpath: /glade/collections/cmip/cmip5/output1/MOHC/HadGEM2-A
         exclude_dirs: ['*/files/*', '*/latest/*']
         file_extension: .nc
 
     extra_attributes:
       product: output1
       activity: CMIP5
-      institute: MPI-M
+      institute: MOHC
 
-  MPI-ESM-P-output1:
+  MOHC-HadGEM2-CC-output1:
     locations:
-      - name: MPI-ESM-P-output1-catalog
+      - name: GLADE-MOHC-HadGEM2-CC-output1
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/MPI-M/MPI-ESM-P
+        urlpath: /glade/collections/cmip/cmip5/output1/MOHC/HadGEM2-CC
         exclude_dirs: ['*/files/*', '*/latest/*']
         file_extension: .nc
 
     extra_attributes:
       product: output1
       activity: CMIP5
-      institute: MPI-M
+      institute: MOHC
 
-  MPI-ESM-LR-output1:
+  MOHC-HadGEM2-ES-output1:
     locations:
-      - name: MPI-ESM-LR-output1-catalog
+      - name: GLADE-MOHC-HadGEM2-ES-output1
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output1/MOHC/HadGEM2-ES
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output1
+      activity: CMIP5
+      institute: MOHC
+
+  MPI-M-MPI-ESM-LR-output1:
+    locations:
+      - name: GLADE-MPI-M-MPI-ESM-LR-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/MPI-M/MPI-ESM-LR
@@ -519,23 +491,37 @@ data_sources:
       activity: CMIP5
       institute: MPI-M
 
-  MRI-AGCM3-2S-output1:
+  MPI-M-MPI-ESM-MR-output1:
     locations:
-      - name: MRI-AGCM3-2S-output1-catalog
+      - name: GLADE-MPI-M-MPI-ESM-MR-output1
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/MRI/MRI-AGCM3-2S
+        urlpath: /glade/collections/cmip/cmip5/output1/MPI-M/MPI-ESM-MR
         exclude_dirs: ['*/files/*', '*/latest/*']
         file_extension: .nc
 
     extra_attributes:
       product: output1
       activity: CMIP5
-      institute: MRI
+      institute: MPI-M
 
-  MRI-AGCM3-2H-output1:
+  MPI-M-MPI-ESM-P-output1:
     locations:
-      - name: MRI-AGCM3-2H-output1-catalog
+      - name: GLADE-MPI-M-MPI-ESM-P-output1
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output1/MPI-M/MPI-ESM-P
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output1
+      activity: CMIP5
+      institute: MPI-M
+
+  MRI-MRI-AGCM3-2H-output1:
+    locations:
+      - name: GLADE-MRI-MRI-AGCM3-2H-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/MRI/MRI-AGCM3-2H
@@ -547,12 +533,12 @@ data_sources:
       activity: CMIP5
       institute: MRI
 
-  MRI-ESM1-output1:
+  MRI-MRI-AGCM3-2S-output1:
     locations:
-      - name: MRI-ESM1-output1-catalog
+      - name: GLADE-MRI-MRI-AGCM3-2S-output1
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/MRI/MRI-ESM1
+        urlpath: /glade/collections/cmip/cmip5/output1/MRI/MRI-AGCM3-2S
         exclude_dirs: ['*/files/*', '*/latest/*']
         file_extension: .nc
 
@@ -561,9 +547,9 @@ data_sources:
       activity: CMIP5
       institute: MRI
 
-  MRI-CGCM3-output1:
+  MRI-MRI-CGCM3-output1:
     locations:
-      - name: MRI-CGCM3-output1-catalog
+      - name: GLADE-MRI-MRI-CGCM3-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/MRI/MRI-CGCM3
@@ -575,9 +561,23 @@ data_sources:
       activity: CMIP5
       institute: MRI
 
-  GISS-E2-H-output1:
+  MRI-MRI-ESM1-output1:
     locations:
-      - name: GISS-E2-H-output1-catalog
+      - name: GLADE-MRI-MRI-ESM1-output1
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output1/MRI/MRI-ESM1
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output1
+      activity: CMIP5
+      institute: MRI
+
+  NASA-GISS-GISS-E2-H-output1:
+    locations:
+      - name: GLADE-NASA-GISS-GISS-E2-H-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/NASA-GISS/GISS-E2-H
@@ -589,37 +589,9 @@ data_sources:
       activity: CMIP5
       institute: NASA-GISS
 
-  GISS-E2-R-output1:
+  NASA-GISS-GISS-E2-H-CC-output1:
     locations:
-      - name: GISS-E2-R-output1-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/NASA-GISS/GISS-E2-R
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output1
-      activity: CMIP5
-      institute: NASA-GISS
-
-  GISS-E2-R-CC-output1:
-    locations:
-      - name: GISS-E2-R-CC-output1-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/NASA-GISS/GISS-E2-R-CC
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output1
-      activity: CMIP5
-      institute: NASA-GISS
-
-  GISS-E2-H-CC-output1:
-    locations:
-      - name: GISS-E2-H-CC-output1-catalog
+      - name: GLADE-NASA-GISS-GISS-E2-H-CC-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/NASA-GISS/GISS-E2-H-CC
@@ -631,9 +603,37 @@ data_sources:
       activity: CMIP5
       institute: NASA-GISS
 
-  CCSM4-output1:
+  NASA-GISS-GISS-E2-R-output1:
     locations:
-      - name: CCSM4-output1-catalog
+      - name: GLADE-NASA-GISS-GISS-E2-R-output1
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output1/NASA-GISS/GISS-E2-R
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output1
+      activity: CMIP5
+      institute: NASA-GISS
+
+  NASA-GISS-GISS-E2-R-CC-output1:
+    locations:
+      - name: GLADE-NASA-GISS-GISS-E2-R-CC-output1
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output1/NASA-GISS/GISS-E2-R-CC
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output1
+      activity: CMIP5
+      institute: NASA-GISS
+
+  NCAR-CCSM4-output1:
+    locations:
+      - name: GLADE-NCAR-CCSM4-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/NCAR/CCSM4
@@ -645,23 +645,9 @@ data_sources:
       activity: CMIP5
       institute: NCAR
 
-  NorESM1-ME-output1:
+  NCC-NorESM1-M-output1:
     locations:
-      - name: NorESM1-ME-output1-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/NCC/NorESM1-ME
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output1
-      activity: CMIP5
-      institute: NCC
-
-  NorESM1-M-output1:
-    locations:
-      - name: NorESM1-M-output1-catalog
+      - name: GLADE-NCC-NorESM1-M-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/NCC/NorESM1-M
@@ -673,9 +659,23 @@ data_sources:
       activity: CMIP5
       institute: NCC
 
-  HadGEM2-AO-output1:
+  NCC-NorESM1-ME-output1:
     locations:
-      - name: HadGEM2-AO-output1-catalog
+      - name: GLADE-NCC-NorESM1-ME-output1
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output1/NCC/NorESM1-ME
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output1
+      activity: CMIP5
+      institute: NCC
+
+  NIMR-KMA-HadGEM2-AO-output1:
+    locations:
+      - name: GLADE-NIMR-KMA-HadGEM2-AO-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/NIMR-KMA/HadGEM2-AO
@@ -687,9 +687,9 @@ data_sources:
       activity: CMIP5
       institute: NIMR-KMA
 
-  GFDL-CM2p1-output1:
+  NOAA-GFDL-GFDL-CM2p1-output1:
     locations:
-      - name: GFDL-CM2p1-output1-catalog
+      - name: GLADE-NOAA-GFDL-GFDL-CM2p1-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/NOAA-GFDL/GFDL-CM2p1
@@ -701,37 +701,9 @@ data_sources:
       activity: CMIP5
       institute: NOAA-GFDL
 
-  GFDL-ESM2G-output1:
+  NOAA-GFDL-GFDL-CM3-output1:
     locations:
-      - name: GFDL-ESM2G-output1-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/NOAA-GFDL/GFDL-ESM2G
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output1
-      activity: CMIP5
-      institute: NOAA-GFDL
-
-  GFDL-ESM2M-output1:
-    locations:
-      - name: GFDL-ESM2M-output1-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/NOAA-GFDL/GFDL-ESM2M
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output1
-      activity: CMIP5
-      institute: NOAA-GFDL
-
-  GFDL-CM3-output1:
-    locations:
-      - name: GFDL-CM3-output1-catalog
+      - name: GLADE-NOAA-GFDL-GFDL-CM3-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/NOAA-GFDL/GFDL-CM3
@@ -743,51 +715,37 @@ data_sources:
       activity: CMIP5
       institute: NOAA-GFDL
 
-  CESM1-WACCM-output1:
+  NOAA-GFDL-GFDL-ESM2G-output1:
     locations:
-      - name: CESM1-WACCM-output1-catalog
+      - name: GLADE-NOAA-GFDL-GFDL-ESM2G-output1
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/NSF-DOE-NCAR/CESM1-WACCM
+        urlpath: /glade/collections/cmip/cmip5/output1/NOAA-GFDL/GFDL-ESM2G
         exclude_dirs: ['*/files/*', '*/latest/*']
         file_extension: .nc
 
     extra_attributes:
       product: output1
       activity: CMIP5
-      institute: NSF-DOE-NCAR
+      institute: NOAA-GFDL
 
-  CESM1-CAM5-output1:
+  NOAA-GFDL-GFDL-ESM2M-output1:
     locations:
-      - name: CESM1-CAM5-output1-catalog
+      - name: GLADE-NOAA-GFDL-GFDL-ESM2M-output1
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/NSF-DOE-NCAR/CESM1-CAM5
+        urlpath: /glade/collections/cmip/cmip5/output1/NOAA-GFDL/GFDL-ESM2M
         exclude_dirs: ['*/files/*', '*/latest/*']
         file_extension: .nc
 
     extra_attributes:
       product: output1
       activity: CMIP5
-      institute: NSF-DOE-NCAR
+      institute: NOAA-GFDL
 
-  CESM1-FASTCHEM-output1:
+  NSF-DOE-NCAR-CESM1-BGC-output1:
     locations:
-      - name: CESM1-FASTCHEM-output1-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output1/NSF-DOE-NCAR/CESM1-FASTCHEM
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output1
-      activity: CMIP5
-      institute: NSF-DOE-NCAR
-
-  CESM1-BGC-output1:
-    locations:
-      - name: CESM1-BGC-output1-catalog
+      - name: GLADE-NSF-DOE-NCAR-CESM1-BGC-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/NSF-DOE-NCAR/CESM1-BGC
@@ -799,9 +757,51 @@ data_sources:
       activity: CMIP5
       institute: NSF-DOE-NCAR
 
-  CSIRO-Mk3L-1-2-output1:
+  NSF-DOE-NCAR-CESM1-CAM5-output1:
     locations:
-      - name: CSIRO-Mk3L-1-2-output1-catalog
+      - name: GLADE-NSF-DOE-NCAR-CESM1-CAM5-output1
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output1/NSF-DOE-NCAR/CESM1-CAM5
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output1
+      activity: CMIP5
+      institute: NSF-DOE-NCAR
+
+  NSF-DOE-NCAR-CESM1-FASTCHEM-output1:
+    locations:
+      - name: GLADE-NSF-DOE-NCAR-CESM1-FASTCHEM-output1
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output1/NSF-DOE-NCAR/CESM1-FASTCHEM
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output1
+      activity: CMIP5
+      institute: NSF-DOE-NCAR
+
+  NSF-DOE-NCAR-CESM1-WACCM-output1:
+    locations:
+      - name: GLADE-NSF-DOE-NCAR-CESM1-WACCM-output1
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output1/NSF-DOE-NCAR/CESM1-WACCM
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output1
+      activity: CMIP5
+      institute: NSF-DOE-NCAR
+
+  UNSW-CSIRO-Mk3L-1-2-output1:
+    locations:
+      - name: GLADE-UNSW-CSIRO-Mk3L-1-2-output1
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output1/UNSW/CSIRO-Mk3L-1-2
@@ -813,23 +813,9 @@ data_sources:
       activity: CMIP5
       institute: UNSW
 
-  CMCC-CMS-output2:
+  CMCC-CMCC-CESM-output2:
     locations:
-      - name: CMCC-CMS-output2-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output2/CMCC/CMCC-CMS
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output2
-      activity: CMIP5
-      institute: CMCC
-
-  CMCC-CESM-output2:
-    locations:
-      - name: CMCC-CESM-output2-catalog
+      - name: GLADE-CMCC-CMCC-CESM-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/CMCC/CMCC-CESM
@@ -841,9 +827,23 @@ data_sources:
       activity: CMIP5
       institute: CMCC
 
-  EC-EARTH-output2:
+  CMCC-CMCC-CMS-output2:
     locations:
-      - name: EC-EARTH-output2-catalog
+      - name: GLADE-CMCC-CMCC-CMS-output2
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output2/CMCC/CMCC-CMS
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output2
+      activity: CMIP5
+      institute: CMCC
+
+  ICHEC-EC-EARTH-output2:
+    locations:
+      - name: GLADE-ICHEC-EC-EARTH-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/ICHEC/EC-EARTH
@@ -855,9 +855,9 @@ data_sources:
       activity: CMIP5
       institute: ICHEC
 
-  inmcm4-output2:
+  INM-inmcm4-output2:
     locations:
-      - name: inmcm4-output2-catalog
+      - name: GLADE-INM-inmcm4-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/INM/inmcm4
@@ -869,9 +869,9 @@ data_sources:
       activity: CMIP5
       institute: INM
 
-  HadGEM2-ES-output2:
+  INPE-HadGEM2-ES-output2:
     locations:
-      - name: HadGEM2-ES-output2-catalog
+      - name: GLADE-INPE-HadGEM2-ES-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/INPE/HadGEM2-ES
@@ -883,37 +883,9 @@ data_sources:
       activity: CMIP5
       institute: INPE
 
-  IPSL-CM5B-LR-output2:
+  IPSL-IPSL-CM5A-LR-output2:
     locations:
-      - name: IPSL-CM5B-LR-output2-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output2/IPSL/IPSL-CM5B-LR
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output2
-      activity: CMIP5
-      institute: IPSL
-
-  IPSL-CM5A-MR-output2:
-    locations:
-      - name: IPSL-CM5A-MR-output2-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output2/IPSL/IPSL-CM5A-MR
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output2
-      activity: CMIP5
-      institute: IPSL
-
-  IPSL-CM5A-LR-output2:
-    locations:
-      - name: IPSL-CM5A-LR-output2-catalog
+      - name: GLADE-IPSL-IPSL-CM5A-LR-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/IPSL/IPSL-CM5A-LR
@@ -925,9 +897,37 @@ data_sources:
       activity: CMIP5
       institute: IPSL
 
-  MIROC-ESM-output2:
+  IPSL-IPSL-CM5A-MR-output2:
     locations:
-      - name: MIROC-ESM-output2-catalog
+      - name: GLADE-IPSL-IPSL-CM5A-MR-output2
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output2/IPSL/IPSL-CM5A-MR
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output2
+      activity: CMIP5
+      institute: IPSL
+
+  IPSL-IPSL-CM5B-LR-output2:
+    locations:
+      - name: GLADE-IPSL-IPSL-CM5B-LR-output2
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output2/IPSL/IPSL-CM5B-LR
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output2
+      activity: CMIP5
+      institute: IPSL
+
+  MIROC-MIROC-ESM-output2:
+    locations:
+      - name: GLADE-MIROC-MIROC-ESM-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/MIROC/MIROC-ESM
@@ -939,9 +939,9 @@ data_sources:
       activity: CMIP5
       institute: MIROC
 
-  MIROC4h-output2:
+  MIROC-MIROC4h-output2:
     locations:
-      - name: MIROC4h-output2-catalog
+      - name: GLADE-MIROC-MIROC4h-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/MIROC/MIROC4h
@@ -953,9 +953,9 @@ data_sources:
       activity: CMIP5
       institute: MIROC
 
-  MIROC5-output2:
+  MIROC-MIROC5-output2:
     locations:
-      - name: MIROC5-output2-catalog
+      - name: GLADE-MIROC-MIROC5-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/MIROC/MIROC5
@@ -967,23 +967,9 @@ data_sources:
       activity: CMIP5
       institute: MIROC
 
-  HadGEM2-ES-output2:
+  MOHC-HadCM3-output2:
     locations:
-      - name: HadGEM2-ES-output2-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output2/MOHC/HadGEM2-ES
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output2
-      activity: CMIP5
-      institute: MOHC
-
-  HadCM3-output2:
-    locations:
-      - name: HadCM3-output2-catalog
+      - name: GLADE-MOHC-HadCM3-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/MOHC/HadCM3
@@ -995,9 +981,23 @@ data_sources:
       activity: CMIP5
       institute: MOHC
 
-  MPI-ESM-LR-output2:
+  MOHC-HadGEM2-ES-output2:
     locations:
-      - name: MPI-ESM-LR-output2-catalog
+      - name: GLADE-MOHC-HadGEM2-ES-output2
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output2/MOHC/HadGEM2-ES
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output2
+      activity: CMIP5
+      institute: MOHC
+
+  MPI-M-MPI-ESM-LR-output2:
+    locations:
+      - name: GLADE-MPI-M-MPI-ESM-LR-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/MPI-M/MPI-ESM-LR
@@ -1009,23 +1009,9 @@ data_sources:
       activity: CMIP5
       institute: MPI-M
 
-  MRI-ESM1-output2:
+  MRI-MRI-CGCM3-output2:
     locations:
-      - name: MRI-ESM1-output2-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output2/MRI/MRI-ESM1
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output2
-      activity: CMIP5
-      institute: MRI
-
-  MRI-CGCM3-output2:
-    locations:
-      - name: MRI-CGCM3-output2-catalog
+      - name: GLADE-MRI-MRI-CGCM3-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/MRI/MRI-CGCM3
@@ -1037,9 +1023,23 @@ data_sources:
       activity: CMIP5
       institute: MRI
 
-  GISS-E2-H-output2:
+  MRI-MRI-ESM1-output2:
     locations:
-      - name: GISS-E2-H-output2-catalog
+      - name: GLADE-MRI-MRI-ESM1-output2
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output2/MRI/MRI-ESM1
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output2
+      activity: CMIP5
+      institute: MRI
+
+  NASA-GISS-GISS-E2-H-output2:
+    locations:
+      - name: GLADE-NASA-GISS-GISS-E2-H-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/NASA-GISS/GISS-E2-H
@@ -1051,9 +1051,9 @@ data_sources:
       activity: CMIP5
       institute: NASA-GISS
 
-  GISS-E2-R-output2:
+  NASA-GISS-GISS-E2-R-output2:
     locations:
-      - name: GISS-E2-R-output2-catalog
+      - name: GLADE-NASA-GISS-GISS-E2-R-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/NASA-GISS/GISS-E2-R
@@ -1065,9 +1065,9 @@ data_sources:
       activity: CMIP5
       institute: NASA-GISS
 
-  CCSM4-output2:
+  NCAR-CCSM4-output2:
     locations:
-      - name: CCSM4-output2-catalog
+      - name: GLADE-NCAR-CCSM4-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/NCAR/CCSM4
@@ -1079,23 +1079,9 @@ data_sources:
       activity: CMIP5
       institute: NCAR
 
-  NorESM1-ME-output2:
+  NCC-NorESM1-M-output2:
     locations:
-      - name: NorESM1-ME-output2-catalog
-        loc_type: posix
-        direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output2/NCC/NorESM1-ME
-        exclude_dirs: ['*/files/*', '*/latest/*']
-        file_extension: .nc
-
-    extra_attributes:
-      product: output2
-      activity: CMIP5
-      institute: NCC
-
-  NorESM1-M-output2:
-    locations:
-      - name: NorESM1-M-output2-catalog
+      - name: GLADE-NCC-NorESM1-M-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/NCC/NorESM1-M
@@ -1107,12 +1093,26 @@ data_sources:
       activity: CMIP5
       institute: NCC
 
-  CESM1-WACCM-output2:
+  NCC-NorESM1-ME-output2:
     locations:
-      - name: CESM1-WACCM-output2-catalog
+      - name: GLADE-NCC-NorESM1-ME-output2
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output2/NSF-DOE-NCAR/CESM1-WACCM
+        urlpath: /glade/collections/cmip/cmip5/output2/NCC/NorESM1-ME
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+
+    extra_attributes:
+      product: output2
+      activity: CMIP5
+      institute: NCC
+
+  NSF-DOE-NCAR-CESM1-BGC-output2:
+    locations:
+      - name: GLADE-NSF-DOE-NCAR-CESM1-BGC-output2
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output2/NSF-DOE-NCAR/CESM1-BGC
         exclude_dirs: ['*/files/*', '*/latest/*']
         file_extension: .nc
 
@@ -1121,9 +1121,9 @@ data_sources:
       activity: CMIP5
       institute: NSF-DOE-NCAR
 
-  CESM1-CAM5-output2:
+  NSF-DOE-NCAR-CESM1-CAM5-output2:
     locations:
-      - name: CESM1-CAM5-output2-catalog
+      - name: GLADE-NSF-DOE-NCAR-CESM1-CAM5-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/NSF-DOE-NCAR/CESM1-CAM5
@@ -1135,9 +1135,9 @@ data_sources:
       activity: CMIP5
       institute: NSF-DOE-NCAR
 
-  CESM1-FASTCHEM-output2:
+  NSF-DOE-NCAR-CESM1-FASTCHEM-output2:
     locations:
-      - name: CESM1-FASTCHEM-output2-catalog
+      - name: GLADE-NSF-DOE-NCAR-CESM1-FASTCHEM-output2
         loc_type: posix
         direct_access: True 
         urlpath: /glade/collections/cmip/cmip5/output2/NSF-DOE-NCAR/CESM1-FASTCHEM
@@ -1149,12 +1149,12 @@ data_sources:
       activity: CMIP5
       institute: NSF-DOE-NCAR
 
-  CESM1-BGC-output2:
+  NSF-DOE-NCAR-CESM1-WACCM-output2:
     locations:
-      - name: CESM1-BGC-output2-catalog
+      - name: GLADE-NSF-DOE-NCAR-CESM1-WACCM-output2
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5/output2/NSF-DOE-NCAR/CESM1-BGC
+        urlpath: /glade/collections/cmip/cmip5/output2/NSF-DOE-NCAR/CESM1-WACCM
         exclude_dirs: ['*/files/*', '*/latest/*']
         file_extension: .nc
 
