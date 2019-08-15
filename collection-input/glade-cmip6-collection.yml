@@ -3,9 +3,45 @@ collection_type: cmip6
 data_sources:
   GLADE-DATA:
     locations:
-      - name: CMIP-AP
+      - name: AerChemMIP
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/CMIP6
+        urlpath: /glade/collections/cmip/CMIP6/AerChemMIP
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+      - name: CFMIP
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CFMIP
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+      - name: CMIP
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/CMIP
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+      - name: LS3MIP
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/LS3MIP
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+      - name: LUMIP
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/LUMIP
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+      - name: PAMIP
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/PAMIP
+        exclude_dirs: ['*/files/*', '*/latest/*']
+        file_extension: .nc
+      - name: ScenarioMIP
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/CMIP6/ScenarioMIP
         exclude_dirs: ['*/files/*', '*/latest/*']
         file_extension: .nc

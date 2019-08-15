@@ -3,11 +3,23 @@ collection_type: cmip5
 data_sources:
   GLADE-DATA:
     locations:
-      - name: CMIP-AP
+      - name: OUTPUT
         loc_type: posix
         direct_access: True 
-        urlpath: /glade/collections/cmip/cmip5
-        exclude_dirs: ['*/files/*', '*/latest/*']
+        urlpath: /glade/collections/cmip/cmip5/output
+        exclude_dirs: ['*/files/*', '*/latest/*', '*/fio-esm/*', '*/ACCESS1.0/*']
+        file_extension: .nc
+      - name: OUTPUT1
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output1
+        exclude_dirs: ['*/files/*', '*/latest/*', '*/fio-esm/*', '*/ACCESS1.0/*']
+        file_extension: .nc
+      - name: OUTPUT2
+        loc_type: posix
+        direct_access: True 
+        urlpath: /glade/collections/cmip/cmip5/output2
+        exclude_dirs: ['*/files/*', '*/latest/*', '*/fio-esm/*', '*/ACCESS1.0/*']
         file_extension: .nc
 
  
