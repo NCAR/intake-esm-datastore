@@ -1,0 +1,78 @@
+name: AWS-CESM1-LE
+collection_type: cesm-aws
+data_sources:
+  land:
+    locations:
+      - name: monthly
+        loc_type: aws-s3
+        direct_access: True
+        urlpath: s3://ncar-cesm-lens/lnd/monthly
+        file_extension: .zarr
+      - name: daily
+        loc_type: aws-s3
+        direct_access: True 
+        urlpath: s3://ncar-cesm-lens/lnd/daily
+        file_extension: .zarr 
+
+  ocean:
+    locations:
+      - name: monthly
+        loc_type: aws-s3
+        direct_access: True
+        urlpath: s3://ncar-cesm-lens/ocn/monthly
+        file_extension: .zarr
+  
+  atm:
+    locations:
+      - name: monthly
+        loc_type: aws-s3
+        direct_access: True
+        urlpath: s3://ncar-cesm-lens/atm/monthly
+        file_extension: .zarr
+      - name: daily
+        loc_type: aws-s3
+        direct_access: True 
+        urlpath: s3://ncar-cesm-lens/atm/daily
+        file_extension: .zarr 
+      - name: hourly6-1990-2005
+        loc_type: aws-s3 
+        direct_access: True 
+        urlpath: s3://ncar-cesm-lens/atm/hourly6-1990-2005
+        file_extension: .zarr 
+      - name: hourly6-2026-2035
+        loc_type: aws-s3 
+        direct_access: True 
+        urlpath: s3://ncar-cesm-lens/atm/hourly6-2026-2035
+        file_extension: .zarr 
+      - name: hourly6-2071-2080
+        loc_type: aws-s3 
+        direct_access: True 
+        urlpath: s3://ncar-cesm-lens/atm/hourly6-2071-2080
+        file_extension: .zarr 
+
+  ice_nh:
+    locations:
+      - name: monthly
+        loc_type: aws-s3
+        direct_access: True
+        urlpath: s3://ncar-cesm-lens/ice_nh/monthly
+        file_extension: .zarr
+
+      - name: daily
+        loc_type: aws-s3
+        direct_access: True
+        urlpath: s3://ncar-cesm-lens/ice_nh/daily
+        file_extension: .zarr
+
+  ice_sh:
+    locations:
+      - name: monthly
+        loc_type: aws-s3
+        direct_access: True
+        urlpath: s3://ncar-cesm-lens/ice_sh/monthly
+        file_extension: .zarr
+      - name: daily
+        loc_type: aws-s3
+        direct_access: True
+        urlpath: s3://ncar-cesm-lens/ice_sh/daily
+        file_extension: .zarr
