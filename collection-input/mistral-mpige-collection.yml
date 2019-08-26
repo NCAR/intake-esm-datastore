@@ -1,0 +1,10 @@
+name: mistral-MPIGE
+collection_type: cmip5
+data_sources:
+  mistral-DATA:
+    locations:
+    - name: MISTRAL
+      loc_type: posix
+      direct_access: True
+      urlpath: /work/mh1007/CMOR/MPI-GE
+      file_extension: .nc
