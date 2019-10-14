@@ -2,7 +2,7 @@
   "esmcat_version": "0.1.0",
   "id": "pangeo-cmip6",
   "description": "This is an ESM collection for CMIP6 Zarr data residing in Pangeo's Google Storage.",
-  "catalog_file": "https://storage.googleapis.com/cmip6/cmip6-zarr-consolidated-stores.csv",
+  "catalog_file": "gs://cmip6/cmip6-zarr-consolidated-stores.csv",
   "attributes": [
     {
       "column_name": "activity_id",
@@ -29,6 +29,14 @@
     {
       "column_name": "grid_label",
       "vocabulary": "https://raw.githubusercontent.com/WCRP-CMIP/CMIP6_CVs/master/CMIP6_grid_label.json"
+    },
+    {
+      "column_name": "version",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "dcpp_start_year",
+      "vocabulary": ""
     }
   ],
   "assets": {
@@ -49,6 +57,11 @@
       {
         "type": "join_new",
         "attribute_name": "member_id",
+        "options": { "coords": "minimal", "compat": "override" }
+      },
+      {
+        "type": "join_new",
+        "attribute_name": "dcpp_init_year",
         "options": { "coords": "minimal", "compat": "override" }
       },
       {
