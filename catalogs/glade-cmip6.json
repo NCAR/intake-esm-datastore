@@ -71,7 +71,8 @@
       },
       {
         "type": "union",
-        "attribute_name": "variable_id"
+        "attribute_name": "variable_id",
+        "options": { "compat": "override" }
       }
     ]
   }
