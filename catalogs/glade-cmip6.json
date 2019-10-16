@@ -55,6 +55,15 @@
     ],
     "aggregations": [
       {
+        "type": "union",
+        "attribute_name": "variable_id"
+      },
+      {
+        "type": "join_existing",
+        "attribute_name": "time_range",
+        "options": { "dim": "time", "coords": "minimal", "compat": "override" }
+      },
+      {
         "type": "join_new",
         "attribute_name": "member_id",
         "options": { "coords": "minimal", "compat": "override" }
@@ -63,16 +72,6 @@
         "type": "join_new",
         "attribute_name": "dcpp_init_year",
         "options": { "coords": "minimal", "compat": "override" }
-      },
-      {
-        "type": "join_existing",
-        "attribute_name": "time_range",
-        "options": { "dim": "time" }
-      },
-      {
-        "type": "union",
-        "attribute_name": "variable_id",
-        "options": { "compat": "override" }
       }
     ]
   }
