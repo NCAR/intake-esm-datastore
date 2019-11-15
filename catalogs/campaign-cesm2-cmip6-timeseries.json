@@ -39,6 +39,14 @@
     {
       "column_name": "ctrl_branch_year",
       "vocabulary": ""
+    },
+    {
+      "column_name": "ctrl_experiment",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "ctrl_member_id",
+      "vocabulary": ""
     }
   ],
   "assets": {
