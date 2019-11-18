@@ -1,8 +1,8 @@
 {
   "esmcat_version": "0.1.0",
-  "id": "campaign_via_glade-cmip6_NOT_CMORIZED",
+  "id": "campaign-cesm2-cmip6-timeseries",
   "description": "ESM collection for the CESM2 raw output that went into CMIP6 data. Located in campaign storage, accessible via GLADE on casper at /glade/campaign/collections/cmip/CMIP6/timeseries-cmip6",
-  "catalog_file": "/glade/collections/cmip/catalog/intake-esm-datastore/catalogs/campaign_via_glade-cmip6_NOT_CMORIZED.csv.gz",
+  "catalog_file": "/glade/collections/cmip/catalog/intake-esm-datastore/catalogs/campaign-cesm2-cmip6-timeseries.csv.gz",
   "attributes": [
     {
       "column_name": "experiment",
@@ -38,6 +38,14 @@
     },
     {
       "column_name": "ctrl_branch_year",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "ctrl_experiment",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "ctrl_member_id",
       "vocabulary": ""
     }
   ],

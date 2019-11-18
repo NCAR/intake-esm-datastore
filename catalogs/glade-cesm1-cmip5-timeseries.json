@@ -1,8 +1,8 @@
 {
   "esmcat_version": "0.1.0",
-  "id": "glade-cmip5_NOT_CMORIZED",
+  "id": "glade-cesm1-cmip5-timeseries",
   "description": "ESM collection for the CESM1 raw output that went into CMIP5 data. Located on glade at /glade/p/cgd/oce/projects/cesm2-marbl/intake-esm-data",
-  "catalog_file": "/glade/collections/cmip/catalog/intake-esm-datastore/catalogs/glade-cmip5_NOT_CMORIZED.csv.gz",
+  "catalog_file": "/glade/collections/cmip/catalog/intake-esm-datastore/catalogs/glade-cesm1-cmip5-timeseries.csv.gz",
   "attributes": [
     {
       "column_name": "experiment",
