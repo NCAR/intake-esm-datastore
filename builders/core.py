@@ -38,13 +38,17 @@ def reverse_filename_format(filename, templates):
     Given format_string and resolved_string, find arguments
     that would give format_string.format(arguments) == resolved_string
     """
-    try:
-        for template in templates:
-            # Return on first successful attempt
-            return reverse_format(template, filename)
-    except Exception:
-        print(f'Failed to parse file: {filename} using patterns: {templates}')
-        return {}
+    x = {}
+
+    for template in templates:
+        try:
+            x = reverse_format(template, filename)
+            if x:
+                break
+        except ValueError:
+            print(f'Failed to parse file: {filename} using pattern: {template}')
+            continue
+    return x
 
 
 def extract_attr_with_regex(input_str, regex, strip_chars=None):
