@@ -6,36 +6,6 @@ import numpy as np
 from core import Builder, extract_attr_with_regex, get_asset_list, reverse_filename_format
 from dask.diagnostics import ProgressBar
 
-cmip6_columns = [
-    'activity_id',
-    'institution_id',
-    'source_id',
-    'experiment_id',
-    'member_id',
-    'table_id',
-    'variable_id',
-    'grid_label',
-    'dcpp_init_year',
-    'version',
-    'time_range',
-    'path',
-]
-cmip5_columns = [
-    'product_id',
-    'institute',
-    'model',
-    'experiment',
-    'frequency',
-    'modeling_realm',
-    'mip_table',
-    'ensemble_member',
-    'variable',
-    'temporal_subset',
-    'version',
-    'path',
-]
-exclude_patterns = ['*/files/*', '*/latest/*']
-
 
 def cmip6_parser(filepath):
     """
@@ -153,31 +123,51 @@ def pick_latest_version(df):
     return df
 
 
-def build_cmip6(
+def build_cmip(
     root_path,
+    cmip_version,
     depth=4,
-    columns=cmip6_columns,
-    exclude_patterns=exclude_patterns,
+    columns=None,
+    exclude_patterns=['*/files/*', '*/latest/*'],
     pick_latest_version=False,
 ):
-    filelist = get_asset_list(root_path, depth=depth)
-    b = Builder(columns, exclude_patterns)
-    df = b(filelist, cmip6_parser)
-    if pick_latest_version:
-        df = pick_latest_version(df)
-    return df
+    parsers = {'6': cmip6_parser, '5': cmip5_parser}
+    cmip_columns = {
+        '6': [
+            'activity_id',
+            'institution_id',
+            'source_id',
+            'experiment_id',
+            'member_id',
+            'table_id',
+            'variable_id',
+            'grid_label',
+            'dcpp_init_year',
+            'version',
+            'time_range',
+            'path',
+        ],
+        '5': [
+            'product_id',
+            'institute',
+            'model',
+            'experiment',
+            'frequency',
+            'modeling_realm',
+            'mip_table',
+            'ensemble_member',
+            'variable',
+            'temporal_subset',
+            'version',
+            'path',
+        ],
+    }
 
-
-def build_cmip5(
-    root_path,
-    depth=4,
-    columns=cmip5_columns,
-    exclude_patterns=exclude_patterns,
-    pick_latest_version=False,
-):
     filelist = get_asset_list(root_path, depth=depth)
+    if columns is None:
+        columns = cmip_columns['cmip_version']
     b = Builder(columns, exclude_patterns)
-    df = b(filelist, cmip5_parser)
+    df = b(filelist, parsers['cmip_version'])
     if pick_latest_version:
         df = pick_latest_version(df)
     return df
@@ -194,11 +184,7 @@ def cli(root_path, depth, pick_latest_version, cmip_version, persist_path):
     if cmip_version not in set(['5', '6']):
         raise ValueError()
 
-    elif cmip_version == '5':
-        df = build_cmip5(root_path, depth=depth, pick_latest_version=pick_latest_version)
-
-    else:
-        df = build_cmip6(root_path, depth=depth, pick_latest_version=pick_latest_version)
+    df = build_cmip(root_path, cmip_version, depth=depth, pick_latest_version=pick_latest_version)
 
     if persist_path is None:
         persist_path = f'./cmip{cmip_version}.csv.gz'
