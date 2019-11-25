@@ -46,8 +46,9 @@ def reverse_filename_format(filename, templates):
             if x:
                 break
         except ValueError:
-            print(f'Failed to parse file: {filename} using pattern: {template}')
             continue
+    if not x:
+        print(f'Failed to parse file: {filename} using patterns: {templates}')
     return x
 
 
@@ -68,11 +69,12 @@ def extract_attr_with_regex(input_str, regex, strip_chars=None):
         return None
 
 
-def get_file_list(root_path):
+def get_file_list(root_path, depth=0):
     from dask.diagnostics import ProgressBar
 
     root = Path(root_path)
-    dirs = [x for x in root.iterdir() if x.is_dir()]
+    pattern = '*/' * (depth + 1)
+    dirs = [x for x in root.glob(pattern) if x.is_dir()]
 
     @dask.delayed
     def _file_dir_files(directory):

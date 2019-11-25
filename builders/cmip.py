@@ -141,9 +141,13 @@ def pick_latest_version(df):
 
 
 def build_cmip6(
-    root_path, columns=cmip6_columns, exclude_patterns=exclude_patterns, pick_latest_version=False
+    root_path,
+    depth=3,
+    columns=cmip6_columns,
+    exclude_patterns=exclude_patterns,
+    pick_latest_version=False,
 ):
-    filelist = get_file_list(root_path)
+    filelist = get_file_list(root_path, depth=depth)
     b = Builder(columns, exclude_patterns)
     df = b(filelist, cmip6_parser)
     if pick_latest_version:
@@ -152,9 +156,13 @@ def build_cmip6(
 
 
 def build_cmip5(
-    root_path, columns=cmip5_columns, exclude_patterns=exclude_patterns, pick_latest_version=False
+    root_path,
+    depth=3,
+    columns=cmip5_columns,
+    exclude_patterns=exclude_patterns,
+    pick_latest_version=False,
 ):
-    filelist = get_file_list(root_path)
+    filelist = get_file_list(root_path, depth=depth)
     b = Builder(columns, exclude_patterns)
     df = b(filelist, cmip5_parser)
     if pick_latest_version:
@@ -163,20 +171,21 @@ def build_cmip5(
 
 
 @click.command()
-@click.option('--root-path')
-@click.option('--pick-latest-version')
-@click.option('--cmip-version')
-@click.option('--persist-path')
-def cli(root_path, pick_latest_version, cmip_version, persist_path):
+@click.option('--root-path', type=str)
+@click.option('--depth', default=3, type=int, show_default=True)
+@click.option('--pick-latest-version', default=False, is_flag=True)
+@click.option('--cmip-version', type=str)
+@click.option('--persist-path', type=str)
+def cli(root_path, depth, pick_latest_version, cmip_version, persist_path):
 
     if cmip_version not in set(['5', '6']):
         raise ValueError()
 
     elif cmip_version == '5':
-        df = build_cmip5(root_path, pick_latest_version=pick_latest_version)
+        df = build_cmip5(root_path, depth=depth, pick_latest_version=pick_latest_version)
 
     else:
-        df = build_cmip6(root_path, pick_latest_version=pick_latest_version)
+        df = build_cmip6(root_path, depth=depth, pick_latest_version=pick_latest_version)
 
     if persist_path is None:
         persist_path = f'./cmip{cmip_version}.csv.gz'
