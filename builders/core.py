@@ -92,5 +92,5 @@ def get_asset_list(root_path, depth=0, extension='*.nc'):
         filelist = dask.compute(*filelist)
 
     filelist = list(itertools.chain(*filelist))
-    print('Done...\n')
+    print('\nDone...\n')
     return filelist

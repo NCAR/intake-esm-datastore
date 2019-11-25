@@ -149,13 +149,13 @@ def pick_latest_version(df):
 
     idx_to_remove = list(itertools.chain(*idx_to_remove))
     df = df.drop(index=idx_to_remove)
-    print('Done....\n')
+    print('\nDone....\n')
     return df
 
 
 def build_cmip6(
     root_path,
-    depth=3,
+    depth=4,
     columns=cmip6_columns,
     exclude_patterns=exclude_patterns,
     pick_latest_version=False,
@@ -170,7 +170,7 @@ def build_cmip6(
 
 def build_cmip5(
     root_path,
-    depth=3,
+    depth=4,
     columns=cmip5_columns,
     exclude_patterns=exclude_patterns,
     pick_latest_version=False,
@@ -185,7 +185,7 @@ def build_cmip5(
 
 @click.command()
 @click.option('--root-path', type=str)
-@click.option('--depth', default=3, type=int, show_default=True)
+@click.option('--depth', default=4, type=int, show_default=True)
 @click.option('--pick-latest-version', default=False, is_flag=True)
 @click.option('--cmip-version', type=str)
 @click.option('--persist-path', type=str)
