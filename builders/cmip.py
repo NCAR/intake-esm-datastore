@@ -187,4 +187,7 @@ def cli(root_path, pick_latest_version, cmip_version, persist_path):
 
 
 if __name__ == '__main__':
+    from distributed import Client
+
+    client = Client()
     cli()

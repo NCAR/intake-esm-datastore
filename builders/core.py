@@ -1,11 +1,12 @@
 import fnmatch
+import itertools
 import re
 import subprocess
 from pathlib import Path
 
+import dask
 import pandas as pd
 from intake.source.utils import reverse_format
-from tqdm import tqdm
 
 
 class Builder:
@@ -64,14 +65,20 @@ def extract_attr_with_regex(input_str, regex, strip_chars=None):
 
 
 def get_file_list(root_path):
+    from dask.distributed import progress
+
     root = Path(root_path)
     dirs = [x for x in root.iterdir() if x.is_dir()]
-    filelist = []
-    for directory in tqdm(dirs):
-        print(directory)
+
+    @dask.delayed
+    def _file_dir_files(directory):
         cmd = ['find', '-L', directory.as_posix(), '-name', '*.nc']
         proc = subprocess.Popen(cmd, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
         output = proc.stdout.read().decode('utf-8').split()
-        filelist.extend(output)
+        return output
 
+    filelist = [_file_dir_files(directory) for directory in dirs]
+    progress(filelist)  # watch progress
+    filelist = dask.compute(*filelist)
+    filelist = list(itertools.chain(*filelist))
     return filelist
