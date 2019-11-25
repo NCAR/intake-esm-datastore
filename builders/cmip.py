@@ -2,7 +2,7 @@ import os
 
 import click
 import numpy as np
-from core import Builder, extract_attr_with_regex, get_file_list, reverse_filename_format
+from core import Builder, extract_attr_with_regex, get_asset_list, reverse_filename_format
 
 cmip6_columns = [
     'activity_id',
@@ -147,7 +147,7 @@ def build_cmip6(
     exclude_patterns=exclude_patterns,
     pick_latest_version=False,
 ):
-    filelist = get_file_list(root_path, depth=depth)
+    filelist = get_asset_list(root_path, depth=depth)
     b = Builder(columns, exclude_patterns)
     df = b(filelist, cmip6_parser)
     if pick_latest_version:
@@ -162,7 +162,7 @@ def build_cmip5(
     exclude_patterns=exclude_patterns,
     pick_latest_version=False,
 ):
-    filelist = get_file_list(root_path, depth=depth)
+    filelist = get_asset_list(root_path, depth=depth)
     b = Builder(columns, exclude_patterns)
     df = b(filelist, cmip5_parser)
     if pick_latest_version:

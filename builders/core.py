@@ -26,9 +26,11 @@ class Builder:
         return z
 
     def __call__(self, filelist, parser=None):
+        print('Parsing list of assets...')
         filelist = filter(self._filter_func, filelist)
         parsed = map(parser, filelist)
         parsed = map(self._update_dict, parsed)
+        print('Done...')
         return pd.DataFrame(parsed)
 
 
@@ -69,7 +71,7 @@ def extract_attr_with_regex(input_str, regex, strip_chars=None):
         return None
 
 
-def get_file_list(root_path, depth=0):
+def get_asset_list(root_path, depth=0, extension='*.nc'):
     from dask.diagnostics import ProgressBar
 
     root = Path(root_path)
@@ -78,15 +80,17 @@ def get_file_list(root_path, depth=0):
 
     @dask.delayed
     def _file_dir_files(directory):
-        cmd = ['find', '-L', directory.as_posix(), '-name', '*.nc']
+        cmd = ['find', '-L', directory.as_posix(), '-name', extension]
         proc = subprocess.Popen(cmd, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
         output = proc.stdout.read().decode('utf-8').split()
         return output
 
+    print('Getting list of assets..')
     filelist = [_file_dir_files(directory) for directory in dirs]
     # watch progress
     with ProgressBar():
         filelist = dask.compute(*filelist)
 
     filelist = list(itertools.chain(*filelist))
+    print('Done...')
     return filelist
