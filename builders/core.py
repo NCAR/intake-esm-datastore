@@ -65,7 +65,7 @@ def extract_attr_with_regex(input_str, regex, strip_chars=None):
 
 
 def get_file_list(root_path):
-    from dask.distributed import progress
+    from dask.diagnostics import ProgressBar
 
     root = Path(root_path)
     dirs = [x for x in root.iterdir() if x.is_dir()]
@@ -78,7 +78,9 @@ def get_file_list(root_path):
         return output
 
     filelist = [_file_dir_files(directory) for directory in dirs]
-    progress(filelist)  # watch progress
-    filelist = dask.compute(*filelist)
+    # watch progress
+    with ProgressBar():
+        filelist = dask.compute(*filelist)
+
     filelist = list(itertools.chain(*filelist))
     return filelist
