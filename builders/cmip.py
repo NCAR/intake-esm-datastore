@@ -1,8 +1,10 @@
 import os
 
 import click
+import dask
 import numpy as np
 from core import Builder, extract_attr_with_regex, get_asset_list, reverse_filename_format
+from dask.diagnostics import ProgressBar
 
 cmip6_columns = [
     'activity_id',
@@ -128,15 +130,26 @@ def cmip5_parser(filepath):
 
 
 def pick_latest_version(df):
+    import itertools
+
     grpby = list(set(df.columns.tolist()) - {'path', 'version'})
     groups = df.groupby(grpby)
-    idx_to_remove = []
-    for _, group in groups:
+
+    @dask.delayed
+    def _pick_latest_v(group):
+        idx = []
         if group.version.nunique() > 1:
-            idx_to_remove.extend(
-                group.sort_values(by=['version'], ascending=False).index[1:].values.tolist()
-            )
+            idx = group.sort_values(by=['version'], ascending=False).index[1:].values.tolist()
+        return idx
+
+    idx_to_remove = [_pick_latest_v(group) for _, group in groups]
+    print('Getting latest version...\n')
+    with ProgressBar():
+        idx_to_remove = dask.compute(*idx_to_remove)
+
+    idx_to_remove = list(itertools.chain(*idx_to_remove))
     df = df.drop(index=idx_to_remove)
+    print('Done....\n')
     return df
 
 

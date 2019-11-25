@@ -26,11 +26,11 @@ class Builder:
         return z
 
     def __call__(self, filelist, parser=None):
-        print('Parsing list of assets...')
+        print('Parsing list of assets...\n')
         filelist = filter(self._filter_func, filelist)
         parsed = map(parser, filelist)
         parsed = map(self._update_dict, parsed)
-        print('Done...')
+        print('Done...\n')
         return pd.DataFrame(parsed)
 
 
@@ -85,12 +85,12 @@ def get_asset_list(root_path, depth=0, extension='*.nc'):
         output = proc.stdout.read().decode('utf-8').split()
         return output
 
-    print('Getting list of assets..')
+    print('Getting list of assets...\n')
     filelist = [_file_dir_files(directory) for directory in dirs]
     # watch progress
     with ProgressBar():
         filelist = dask.compute(*filelist)
 
     filelist = list(itertools.chain(*filelist))
-    print('Done...')
+    print('Done...\n')
     return filelist
