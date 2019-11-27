@@ -25,7 +25,9 @@ def cesm2_cmip6_parser(filepath):
                 file_component = component
                 x = f1.split(stream)
                 case = x[0].strip('.')
-                file_experiment = case.split('CMIP6-')[-1].split('.')[0]
+                file_experiment = case.split('CMIP6-')[-1]
+                nnn = extract_attr_with_regex(file_experiment, r'.\d{3}$')
+                file_experiment = file_experiment.split(nnn)[0]
                 y = x[-1].strip('.').split(date_str)
                 variable = y[0].strip('.')
                 break
