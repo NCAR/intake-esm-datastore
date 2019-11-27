@@ -177,7 +177,7 @@ def build_cmip(
 @click.option('--root-path', type=str)
 @click.option('--depth', default=4, type=int, show_default=True)
 @click.option('--pick-latest-version', default=False, is_flag=True)
-@click.option('--cmip-version', type=str)
+@click.option('--cmip-version', type=int)
 @click.option('--persist-path', type=str)
 def cli(root_path, depth, pick_latest_version, cmip_version, persist_path):
 

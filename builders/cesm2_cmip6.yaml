@@ -1,0 +1,232 @@
+experiments:
+  piControl:
+    case_members:
+      b.e21.B1850.f09_g17.CMIP6-piControl.001:
+        ctrl_branch_year: 1
+
+  abrupt-4xCO2:
+    case_members:
+      b.e21.BCO2x4cmip6.f09_g17.CMIP6-abrupt4xCO2.001:
+        ctrl_member_id: 1
+        ctrl_experiment: piControl
+        ctrl_branch_year: 501
+
+  1pctCO2:
+    case_members:
+      b.e21.B1PCT.f09_g17.CMIP6-1pctCO2.001:
+        ctrl_member_id: 1
+        ctrl_experiment: piControl
+        ctrl_branch_year: 501
+
+  1pctCO2-bgc:
+    case_members:
+      b.e21.B1PCT.f09_g17.CMIP6-1pctCO2-bgc.001:
+        ctrl_member_id: 1
+        ctrl_experiment: piControl
+        ctrl_branch_year: 501
+
+  historical:
+    case_members:
+      b.e21.BHIST.f09_g17.CMIP6-historical.001:
+        member_id: 1
+        ctrl_member_id: 1
+        ctrl_experiment: piControl
+        ctrl_branch_year: 601
+      b.e21.BHIST.f09_g17.CMIP6-historical.002:
+        member_id: 2
+        ctrl_member_id: 1
+        ctrl_experiment: piControl
+        ctrl_branch_year: 631
+      b.e21.BHIST.f09_g17.CMIP6-historical.003:
+        member_id: 3
+        ctrl_member_id: 1
+        ctrl_experiment: piControl
+        ctrl_branch_year: 661
+      b.e21.BHIST.f09_g17.CMIP6-historical.004:
+        member_id: 4
+        ctrl_member_id: 1
+        ctrl_experiment: piControl
+        ctrl_branch_year: 501
+      b.e21.BHIST.f09_g17.CMIP6-historical.005:
+        member_id: 5
+        ctrl_member_id: 1
+        ctrl_experiment: piControl
+        ctrl_branch_year: 691
+      b.e21.BHIST.f09_g17.CMIP6-historical.006:
+        member_id: 6
+        ctrl_member_id: 1
+        ctrl_experiment: piControl
+        ctrl_branch_year: 721
+      b.e21.BHIST.f09_g17.CMIP6-historical.007:
+        member_id: 7
+        ctrl_member_id: 1
+        ctrl_experiment: piControl
+        ctrl_branch_year: 751
+      b.e21.BHIST.f09_g17.CMIP6-historical.008:
+        member_id: 8
+        ctrl_member_id: 1
+        ctrl_experiment: piControl
+        ctrl_branch_year: 781
+      b.e21.BHIST.f09_g17.CMIP6-historical.009:
+        member_id: 9
+        ctrl_member_id: 1
+        ctrl_experiment: piControl
+        ctrl_branch_year: 811
+      b.e21.BHIST.f09_g17.CMIP6-historical.010:
+        member_id: 10
+        ctrl_member_id: 1
+        ctrl_experiment: piControl
+        ctrl_branch_year: 841
+      b.e21.BHIST.f09_g17.CMIP6-historical.011:
+        member_id: 11
+        ctrl_member_id: 1
+        ctrl_experiment: piControl
+        ctrl_branch_year: 871
+
+  SSP1-2.6:
+    case_members:
+      b.e21.BSSP126cmip6.f09_g17.CMIP6-SSP1-2.6.001:
+        ctrl_member_id: 10
+        ctrl_experiment: historical
+        ctrl_branch_year: 2015
+      b.e21.BSSP126cmip6.f09_g17.CMIP6-SSP1-2.6.002:
+        ctrl_member_id: 1
+        ctrl_experiment: historical
+        ctrl_branch_year: 2015
+
+  SSP2-4.5:
+    case_members:
+      b.e21.BSSP245cmip6.f09_g17.CMIP6-SSP2-4.5.001:
+        ctrl_member_id: 10
+        ctrl_experiment: historical
+        ctrl_branch_year: 2015
+      b.e21.BSSP245cmip6.f09_g17.CMIP6-SSP2-4.5.002:
+        ctrl_member_id: 11
+        ctrl_experiment: historical
+        ctrl_branch_year: 2015
+      b.e21.BSSP245cmip6.f09_g17.CMIP6-SSP2-4.5.003:
+        ctrl_member_id: 1
+        ctrl_experiment: historical
+        ctrl_branch_year: 2015
+
+  SSP3-7.0:
+    case_members:
+      b.e21.BSSP370cmip6.f09_g17.CMIP6-SSP3-7.0.001:
+        ctrl_member_id: 10
+        ctrl_experiment: historical
+        ctrl_branch_year: 2015
+      b.e21.BSSP370cmip6.f09_g17.CMIP6-SSP3-7.0.002:
+        ctrl_member_id: 11
+        ctrl_experiment: historical
+        ctrl_branch_year: 2015
+
+  SSP5-8.5:
+    case_members:
+      b.e21.BSSP585cmip6.f09_g17.CMIP6-SSP5-8.5.001:
+        ctrl_member_id: 10
+        ctrl_experiment: historical
+        ctrl_branch_year: 2015
+      b.e21.BSSP585cmip6.f09_g17.CMIP6-SSP5-8.5.002:
+        ctrl_member_id: 11
+        ctrl_experiment: historical
+        ctrl_branch_year: 2015
+
+  piControl-waccm:
+    case_members:
+      b.e21.BW1850.f09_g17.CMIP6-piControl.001:
+
+  historical-waccm:
+    case_members:
+      b.e21.BWHIST.f09_g17.CMIP6-historical-WACCM.001:
+        member_id: 1
+        ctrl_member_id: 1
+        ctrl_experiment: piControl-waccm
+        ctrl_branch_year: 56
+      b.e21.BWHIST.f09_g17.CMIP6-historical-WACCM.002:
+        member_id: 2
+        ctrl_member_id: 1
+        ctrl_experiment: piControl-waccm
+        ctrl_branch_year: 61
+      b.e21.BWHIST.f09_g17.CMIP6-historical-WACCM.003:
+        member_id: 3
+        ctrl_member_id: 1
+        ctrl_experiment: piControl-waccm
+        ctrl_branch_year: 70
+
+  esm-piControl:
+    case_members:
+      b.e21.B1850.f09_g17.CMIP6-esm-piControl.001:
+        ctrl_member_id: 1
+        ctrl_experiment: piControl
+        ctrl_branch_year: 501
+
+  esm-hist:
+    case_members:
+      b.e21.BHIST_BPRP.f09_g17.CMIP6-esm-hist.001:
+        member_id: 1
+        ctrl_member_id: 1
+        ctrl_experiment: esm-piControl
+        ctrl_branch_year: 51
+
+component_streams:
+  atm:
+    - cam.h0
+    - cam.h1
+    - cam.h2
+    - cam.h3
+    - cam.h4
+    - cam.h5
+    - cam.h6
+    - cam.h7
+    - cam.h8
+  glc:
+    - cism.h
+    - cism.h0
+    - cism.h1
+    - cism.h2
+    - cism.h3
+    - cism.h4
+    - cism.h5
+    - cism.h6
+    - cism.h7
+    - cism.h8
+  ice:
+    - cice.h2_06h
+    - cice.h1
+    - cice.h
+  lnd:
+    - clm2.h0
+    - clm2.h1
+    - clm2.h2
+    - clm2.h3
+    - clm2.h4
+    - clm2.h5
+    - clm2.h6
+    - clm2.h7
+    - clm2.h8
+  ocn:
+    - pop.h.nday1
+    - pop.h.nyear1
+    - pop.h.ecosys.nday1
+    - pop.h.ecosys.nyear1
+    - pop.h
+    - pop.h.sigma
+  rof:
+    - rtm.h0
+    - rtm.h1
+    - rtm.h2
+    - rtm.h3
+    - rtm.h4
+    - rtm.h5
+    - rtm.h6
+    - rtm.h7
+    - rtm.h8
+    - mosart.h0
+    - mosart.h1
+    - mosart.h2
+    - mosart.h3
+    - mosart.h4
+    - mosart.h5
+    - mosart.h6
+    - mosart.h7
+    - mosart.h8
