@@ -32,3 +32,12 @@ repos:
     rev: 1.19.1
     hooks:
       - id: prettier
+  - repo: local
+    #rev: v0.8.0
+    hooks:
+      - id: wily
+        name: wily
+        entry: wily diff
+        verbose: true
+        language: python
+        additional_dependencies: [wily]
