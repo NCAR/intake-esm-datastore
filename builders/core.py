@@ -2,6 +2,7 @@ import fnmatch
 import itertools
 import re
 import subprocess
+from functools import lru_cache
 from pathlib import Path
 
 import dask
@@ -54,8 +55,13 @@ def reverse_filename_format(filename, templates):
     return x
 
 
-def extract_attr_with_regex(input_str, regex, strip_chars=None):
-    pattern = re.compile(regex, re.IGNORECASE)
+def extract_attr_with_regex(input_str, regex, strip_chars=None, ignore_case=True):
+
+    if ignore_case:
+        pattern = re.compile(regex, re.IGNORECASE)
+
+    else:
+        pattern = re.compile(regex)
     match = re.findall(pattern, input_str)
     if match:
         match = max(match, key=len)
@@ -71,6 +77,7 @@ def extract_attr_with_regex(input_str, regex, strip_chars=None):
         return None
 
 
+@lru_cache(maxsize=None)
 def get_asset_list(root_path, depth=0, extension='*.nc'):
     from dask.diagnostics import ProgressBar
 

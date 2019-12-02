@@ -3,6 +3,7 @@ import os
 import click
 import dask
 import numpy as np
+import requests
 from core import Builder, extract_attr_with_regex, get_asset_list, reverse_filename_format
 from dask.diagnostics import ProgressBar
 
@@ -99,7 +100,7 @@ def cmip5_parser(filepath):
     return fileparts
 
 
-def pick_latest_version(df):
+def _pick_latest_version(df):
     import itertools
 
     grpby = list(set(df.columns.tolist()) - {'path', 'version'})
@@ -164,25 +165,38 @@ def build_cmip(
     }
 
     filelist = get_asset_list(root_path, depth=depth)
+    cmip_version = str(cmip_version)
     if columns is None:
-        columns = cmip_columns['cmip_version']
+        columns = cmip_columns[cmip_version]
     b = Builder(columns, exclude_patterns)
-    df = b(filelist, parsers['cmip_version'])
+    df = b(filelist, parsers[cmip_version])
+
+    if cmip_version == '6':
+        # Some entries are invalid: Don't conform to the CMIP6 Data Reference Syntax
+        cmip6_activity_id_url = (
+            'https://raw.githubusercontent.com/WCRP-CMIP/CMIP6_CVs/master/CMIP6_activity_id.json'
+        )
+        resp = requests.get(cmip6_activity_id_url)
+        activity_ids = list(resp.json()['activity_id'].keys())
+        # invalids = df[~df.activity_id.isin(activity_ids)]
+        df = df[df.activity_id.isin(activity_ids)]
     if pick_latest_version:
-        df = pick_latest_version(df)
+        df = _pick_latest_version(df)
     return df
 
 
 @click.command()
 @click.option('--root-path', type=str)
 @click.option('--depth', default=4, type=int, show_default=True)
-@click.option('--pick-latest-version', default=False, is_flag=True)
+@click.option('--pick-latest-version', default=False, is_flag=True, show_default=True)
 @click.option('--cmip-version', type=int)
 @click.option('--persist-path', type=str)
 def cli(root_path, depth, pick_latest_version, cmip_version, persist_path):
 
-    if cmip_version not in set(['5', '6']):
-        raise ValueError()
+    if cmip_version not in set([5, 6]):
+        raise ValueError(
+            f'cmip_version = {cmip_version} is not valid. Valid options include: 5 and 6.'
+        )
 
     df = build_cmip(root_path, cmip_version, depth=depth, pick_latest_version=pick_latest_version)
 

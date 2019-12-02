@@ -13,21 +13,19 @@ date_str_regex = r'\d{4}\-\d{4}|\d{6}\-\d{6}|\d{8}\-\d{8}|\d{10}Z\-\d{10}Z|\d{12
 
 
 def cesm2_cmip6_parser(filepath):
-    f1 = os.path.basename(filepath)
-    date_str = extract_attr_with_regex(f1, date_str_regex)
+    file_basename = os.path.basename(filepath)
+    date_str = extract_attr_with_regex(file_basename, date_str_regex)
     for component, streams in component_streams.items():
         # Loop over stream strings
         # NOTE: The order matters here!
         for stream in sorted(streams, key=lambda s: len(s), reverse=True):
-            s = f1.find(stream)
+            s = file_basename.find(stream)
             if s >= 0:
                 file_stream = stream
                 file_component = component
-                x = f1.split(stream)
+                x = file_basename.split(stream)
                 case = x[0].strip('.')
-                file_experiment = case.split('CMIP6-')[-1]
-                nnn = extract_attr_with_regex(file_experiment, r'.\d{3}$')
-                file_experiment = file_experiment.split(nnn)[0]
+                file_experiment = '.'.join(case.split('.')[4:-1])
                 y = x[-1].strip('.').split(date_str)
                 variable = y[0].strip('.')
                 break
