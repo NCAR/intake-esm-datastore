@@ -83,13 +83,17 @@ def get_asset_list(root_path, depth=0, extension='*.nc'):
 
     root = Path(root_path)
     pattern = '*/' * (depth + 1)
+
     dirs = [x for x in root.glob(pattern) if x.is_dir()]
 
     @dask.delayed
     def _file_dir_files(directory):
-        cmd = ['find', '-L', directory.as_posix(), '-name', extension]
-        proc = subprocess.Popen(cmd, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
-        output = proc.stdout.read().decode('utf-8').split()
+        try:
+            cmd = ['find', '-L', directory.as_posix(), '-name', extension]
+            proc = subprocess.Popen(cmd, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+            output = proc.stdout.read().decode('utf-8').split()
+        except Exception:
+            output = []
         return output
 
     print('Getting list of assets...\n')
