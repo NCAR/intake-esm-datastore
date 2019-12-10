@@ -35,6 +35,18 @@
     {
       "column_name": "path",
       "vocabulary": ""
+    },
+    {
+      "column_name": "ctrl_branch_year",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "ctrl_experiment",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "ctrl_member_id",
+      "vocabulary": ""
     }
   ],
   "assets": {
@@ -43,7 +55,11 @@
   },
   "aggregation_control": {
     "variable_column_name": "variable",
-    "groupby_attrs": ["component", "experiment", "stream"],
+    "groupby_attrs": [
+      "component",
+      "experiment",
+      "stream"
+    ],
     "aggregations": [
       {
         "type": "union",
