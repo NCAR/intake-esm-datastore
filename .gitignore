@@ -109,3 +109,8 @@ worker-*
 slurm-*
 dask-worker*
 *.txt
+builders/*csv.gz
+builders/Convert nc stores to json.ipynb
+builders/Untitled.ipynb
+builders/Untitled1.ipynb
+builders/notebooks/glade-cmip6_catalog_builder copy.ipynb
