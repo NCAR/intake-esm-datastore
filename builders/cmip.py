@@ -186,26 +186,39 @@ def build_cmip(
 
 
 @click.command()
-@click.option('--root-path', type=str)
-@click.option('--depth', default=4, type=int, show_default=True)
-@click.option('--pick-latest-version', default=False, is_flag=True, show_default=True)
-@click.option('--cmip-version', type=int)
-@click.option('--persist-path', type=str)
-def cli(root_path, depth, pick_latest_version, cmip_version, persist_path):
+@click.option(
+    '--root-path', type=click.Path(exists=True), help='Root path of the CMIP project output.'
+)
+@click.option(
+    '-d',
+    '--depth',
+    default=4,
+    type=int,
+    show_default=True,
+    help='Recursion depth. Recursively walk root_path to a specified depth',
+)
+@click.option(
+    '--pick-latest-version',
+    default=False,
+    is_flag=True,
+    show_default=True,
+    help='Whether to only catalog lastest version of data assets or keep all versions',
+)
+@click.option('-v', '--cmip-version', type=int, help='CMIP phase (e.g. 5 for CMIP5 or 6 for CMIP6)')
+@click.option('--csv-filepath', type=str, help='File path to use when saving the built catalog')
+def cli(root_path, depth, pick_latest_version, cmip_version, csv_filepath):
 
     if cmip_version not in set([5, 6]):
         raise ValueError(
             f'cmip_version = {cmip_version} is not valid. Valid options include: 5 and 6.'
         )
 
+    if csv_filepath is None:
+        raise ValueError("Please provide csv-filepath. e.g.: './cmip5.csv.gz'")
+
     df = build_cmip(root_path, cmip_version, depth=depth, pick_latest_version=pick_latest_version)
 
-    if persist_path is None:
-        persist_path = f'./cmip{cmip_version}.csv.gz'
-    else:
-        persist_path = f'{persist_path}/cmip{cmip_version}.csv.gz'
-
-    df.to_csv(persist_path, compression='gzip', index=False)
+    df.to_csv(csv_filepath, compression='gzip', index=False)
 
 
 if __name__ == '__main__':
