@@ -1,8 +1,8 @@
 {
   "esmcat_version": "0.1.0",
   "id": "pangeo-cmip6",
-  "description": "This is an ESM collection for CMIP6 Zarr data residing in Pangeo's Google Storage.",
-  "catalog_file": "https://storage.googleapis.com/pangeo-cmip6/pangeo-cmip6-zarr-consolidated-stores.csv",
+  "description": "This is an ESM collection for CMIP6 Zarr data residing in Google Storage.",
+  "catalog_file": "https://storage.googleapis.com/cmip6/pangeo-cmip6.csv",
   "attributes": [
     {
       "column_name": "activity_id",
