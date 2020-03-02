@@ -182,7 +182,7 @@ def build_cmip(
         df = df[df.activity_id.isin(activity_ids)]
     if pick_latest_version:
         df = _pick_latest_version(df)
-    return df
+    return df.sort_values(by=['path'])
 
 
 @click.command()
