@@ -1,8 +1,20 @@
-# Scripts to build catalogs
+# Scripts for building catalogs
 
-- [Scripts to build catalogs](#scripts-to-build-catalogs)
+- [Scripts for building catalogs](#scripts-for-building-catalogs)
+  - [Create conda environment](#create-conda-environment)
   - [CMIP5 and CMIP6](#cmip5-and-cmip6)
-  - [TODO: CESM](#todo-cesm)
+
+## Create conda environment
+
+```bash
+conda env update -f environment.yaml
+```
+
+Once the environment creation step is done, activate the created environment:
+
+```bash
+conda activate esm-catalog-builder
+```
 
 ## CMIP5 and CMIP6
 
@@ -24,7 +36,5 @@ Options:
 **Example:**
 
 ```bash
-$ python cmip.py --root-path /glade/collections/cmip/CMIP6 --pick-latest-version --cmip-version 6 --csv-filepath ../catalogs/glade-cmip6.csv.gz --depth 5
+python cmip.py --root-path /glade/collections/cmip/CMIP6 --pick-latest-version --cmip-version 6 --csv-filepath ../catalogs/glade-cmip6.csv.gz --depth 5
 ```
-
-## TODO: CESM
