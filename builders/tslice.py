@@ -2,8 +2,8 @@ import os
 
 import click
 import dask
-import xarray as xr
 import numpy as np
+import netCDF4 as nc
 import requests
 from core import Builder, extract_attr_with_regex, get_asset_list, reverse_filename_format
 from dask.diagnostics import ProgressBar
@@ -20,19 +20,23 @@ def cesm_parser(filepath):
 
     try:
         fileparts['variable'] = []
-        d = xr.open_dataset(filepath)
+        # open file
+        d = nc.Dataset(filepath,'r')
+        # find what the time (unlimited) dimension is
+        dims = list(dict(d.dimensions).keys())
+        look_for_unlim=[d.dimensions[dim].isunlimited() for dim in dims]
+        unlim=[i for i, x in enumerate(look_for_unlim) if x]
+        unlim_dim=dims[unlim[0]]
+        # loop through all variables
         for v in d.variables.keys():
-            fileparts['variable'].append(v)
+            # test to see if this is a time varying field, if so, add to the catalog
+            if unlim_dim in d.variables[v].dimensions:
+                fileparts['variable'].append(v)
+        # add all global attributes to the db column list.  this counts on enough information 
+        # being there to create enough serachable categories.
+        for attr in d.ncattrs():
+            fileparts[attr] = d.getncattr(attr)
         d.close()
-        print(filepath+"   "+str(len(fileparts['variable'])))
-
-        parent = basename.split(".")
-        fileparts['case_name'] = '.'.join(parent[:-3])
-        fileparts['ensemble_member'] = "001"
-        fileparts['model'] = parent[-4]
-        fileparts['stream'] = parent[-3]
-        fileparts['time_range'] = parent[-2]
-        fileparts['realm'] = filepath.split("/")[-3]
 
     except Exception:
         pass
@@ -50,14 +54,6 @@ def build_df(
     parsers = {'2': cesm_parser}
     df_columns = {
         '2': [
-            'case_name',
-            'ensemble_member',
-            'realm',
-            'model',
-            'stream',
-            'variable',
-            'time_range',
-            'path', 
         ],
     }
 
@@ -67,6 +63,9 @@ def build_df(
         columns = df_columns[data_type]
     b = Builder(columns, exclude_patterns)
     df = b(filelist, parsers[data_type])
+    #print('-------------------------')
+    #print(df)
+    #print('-------------------------')
     return df.sort_values(by=['path'])
 
 
