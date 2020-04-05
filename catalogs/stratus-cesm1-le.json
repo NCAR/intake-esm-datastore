@@ -1,0 +1,37 @@
+{
+  "esmcat_version": "0.1.0",
+  "id": "stratus-cesm1-le",
+  "description": "An ESM collection for CESM1 Large Ensemble Zarr dataset available on NCAR's Object Storage (startus)",
+  "catalog_file": "stratus-cesm1-le.csv",
+  "attributes": [
+    {
+      "column_name": "component",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "frequency",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "experiment",
+      "vocabulary": ""
+    },
+
+    { "column_name": "variable", "vocabulary": "" }
+  ],
+  "assets": {
+    "column_name": "path",
+    "format": "zarr"
+  },
+  "aggregation_control": {
+    "variable_column_name": "variable",
+    "groupby_attrs": ["component", "experiment", "frequency"],
+    "aggregations": [
+      {
+        "type": "union",
+        "attribute_name": "variable",
+        "options": { "compat": "override" }
+      }
+    ]
+  }
+}
