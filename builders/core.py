@@ -2,6 +2,7 @@ import fnmatch
 import itertools
 import re
 import subprocess
+import glob
 from functools import lru_cache
 from pathlib import Path
 
@@ -26,10 +27,13 @@ class Builder:
         z = {**d, **entry}
         return z
 
-    def __call__(self, filelist, parser=None):
+    def __call__(self, filelist, parser=None, d=None, g=None):
         print('Parsing list of assets...\n')
         filelist = filter(self._filter_func, filelist)
-        parsed = map(parser, filelist)
+        if d:
+            parsed = map(lambda filelist: parser(filelist, d, g), filelist)
+        else:
+            parsed = map(parser, filelist)
         parsed = map(self._update_dict, parsed)
         print('Done...\n')
         return pd.DataFrame(parsed)
@@ -82,7 +86,10 @@ def get_asset_list(root_path, depth=0, extension='*.nc'):
     from dask.diagnostics import ProgressBar
 
     root = Path(root_path)
-    pattern = '*/' * (depth + 1)
+    if depth is not 0:
+        pattern = '*/' * (depth + 1)
+    else:
+        return glob.glob(root_path)
 
     dirs = [x for x in root.glob(pattern) if x.is_dir()]
 
