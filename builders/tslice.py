@@ -1,4 +1,5 @@
 import os
+import sys
 from collections import OrderedDict
 
 import pandas as pd
@@ -63,15 +64,33 @@ def write_json(cols, csv_filepath, yaml_path):
     with open(json_filepath,'w') as f:
         json.dump(od,f,indent=4)
 
+
+def verify(input_yaml):
+    # verify that we're working with a dictionary
+    if not isinstance(input_yaml,dict):
+        print("ERROR: The experiment/dataset top level is not a dictionary. Make sure you follow the correct format.")
+        return False
+    for dataset in input_yaml.keys():
+        # check to see if there is a data_sources key for each dataset
+        if 'data_sources' not in input_yaml[dataset].keys():
+            print("ERROR: Each experiment/dataset must have the key 'data_sources'. Verify "+dataset+" contains this key.")
+            return False
+        # verify that we're working with a list at this level
+        if not isinstance(input_yaml[dataset]['data_sources'],list):
+            print("ERROR: The data_sources are not in a list.  Make sure you follow the correct format.")
+            return False
+        for stream_info in input_yaml[dataset]['data_sources']:
+            # check to make sure that there's a 'glob_string' key for each data_source
+            if 'glob_string' not in stream_info.keys():
+                print("ERROR: Each data_source must contain a 'glob_string' key.  Verify that all data_sources under "+dataset+" contain a 'glob_string' key.")
+                return False
+    return True
+
+
 def common_parser(filepath, local_attrs, glob_attrs):
     """
     gather the file parts for the df
     """
-    print("Passed info:")
-    print(filepath)
-    print(glob_attrs)
-    print(local_attrs)
-    print("---------------------")
     basename = os.path.basename(filepath)
     fileparts = {}
     fileparts['path'] = filepath
@@ -91,19 +110,16 @@ def common_parser(filepath, local_attrs, glob_attrs):
             # test to see if this is a time varying field, if so, add to the catalog
             if unlim_dim in d.variables[v].dimensions:
                 fileparts['variable'].append(v)
+        # add the keys that are common to all files in the dataset
         for gv in glob_attrs.keys():
             fileparts[gv] = glob_attrs[gv]
+        # add the keys that are common just to the particular glob string
         for lv in local_attrs.keys():
             if 'glob_string' not in v:
                 fileparts[lv] = local_attrs[lv]
-        # add all global attributes to the db column list.  this counts on enough information 
-        # being there to create enough serachable categories.
-#        for attr in d.ncattrs():
-#            fileparts[attr] = d.getncattr(attr)
-#        d.close()
     except Exception:
         pass
-    print(fileparts)
+
     return fileparts
 
 def build_df(
@@ -116,24 +132,32 @@ def build_df(
     
     with open(yaml_path,'r') as f:
         input_yaml = yaml.safe_load(f)  
-    # loop over datasets
-    df_parts = []
-    for dataset in input_yaml.keys():
-        ds_globals = {}
-        for g in input_yaml[dataset].keys():
-            if 'data_sources' not in g:
-                ds_globals[g] = input_yaml[dataset][g]
-        for stream_info in input_yaml[dataset]['data_sources']:
-            filelist = get_asset_list(stream_info['glob_string'], depth=0)
-            if columns is None:
-                columns = []
-            b = Builder(columns, exclude_patterns)
-            df_parts.append(b(filelist, parser, d=stream_info, g=ds_globals))
-            #print('-------------------------')
-            #print(df)
-            #print('-------------------------')
-    df = pd.concat(df_parts,sort=False) 
-    return df.sort_values(by=['path'])
+    # verify the format is correct
+    if verify(input_yaml):
+        # loop over datasets
+        df_parts = []
+        for dataset in input_yaml.keys():
+            ds_globals = {}
+            # get a list of keys that are common to all files in the dataset
+            for g in input_yaml[dataset].keys():
+                if 'data_sources' not in g:
+                    ds_globals[g] = input_yaml[dataset][g]
+            # loop over all of the data_sources for the dataset, create a dataframe
+            # for each data_source, append that dataframe to a list that will contain
+            # the full dataframe (or catalog) based on everything in the yaml file.
+            for stream_info in input_yaml[dataset]['data_sources']:
+                filelist = get_asset_list(stream_info['glob_string'], depth=0)
+                if columns is None:
+                    columns = []
+                b = Builder(columns, exclude_patterns)
+                df_parts.append(b(filelist, parser, d=stream_info, g=ds_globals))
+        # create the combined dataframe from all of the data_sources and datasets from
+        # the yaml file
+        df = pd.concat(df_parts,sort=False) 
+        return df.sort_values(by=['path'])
+    else:
+        print("ERROR: yaml file is not formatted correctly.  See above errors for more information.")
+        sys.exit(-1)
 
 
 @click.command()

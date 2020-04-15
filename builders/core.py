@@ -30,7 +30,7 @@ class Builder:
     def __call__(self, filelist, parser=None, d=None, g=None):
         print('Parsing list of assets...\n')
         filelist = filter(self._filter_func, filelist)
-        if d:
+        if d and g:
             parsed = map(lambda filelist: parser(filelist, d, g), filelist)
         else:
             parsed = map(parser, filelist)
