@@ -103,12 +103,14 @@ def common_parser(filepath, local_attrs, glob_attrs):
         dims = list(dict(d.dimensions).keys())
         look_for_unlim=[d.dimensions[dim].isunlimited() for dim in dims]
         unlim=[i for i, x in enumerate(look_for_unlim) if x]
-        unlim_dim=dims[unlim[0]]
-        fileparts['time_range'] = str(d[unlim_dim][0])+'-'+str(d[unlim_dim][-1])
+        if len(unlim)>0:
+            unlim_dim=dims[unlim[0]]
+        if unlim_dim in d.variables.keys():
+            fileparts['time_range'] = str(d[unlim_dim][0])+'-'+str(d[unlim_dim][-1])
         # loop through all variables
         for v in d.variables.keys():
-            # test to see if this is a time varying field, if so, add to the catalog
-            if unlim_dim in d.variables[v].dimensions:
+            # add all variables that are not coordinates to the catalog
+            if v not in dims:
                 fileparts['variable'].append(v)
         # add the keys that are common to all files in the dataset
         for gv in glob_attrs.keys():
@@ -153,7 +155,7 @@ def build_df(
                 df_parts.append(b(filelist, parser, d=stream_info, g=ds_globals))
         # create the combined dataframe from all of the data_sources and datasets from
         # the yaml file
-        df = pd.concat(df_parts,sort=False) 
+        df = pd.concat(df_parts,sort=False)
         return df.sort_values(by=['path'])
     else:
         print("ERROR: yaml file is not formatted correctly.  See above errors for more information.")
