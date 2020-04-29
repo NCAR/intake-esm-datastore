@@ -103,7 +103,8 @@ def cmip5_parser(filepath):
 def _pick_latest_version(df):
     import itertools
 
-    grpby = list(set(df.columns.tolist()) - {'path', 'version'})
+    print(f'Dataframe size before picking latest version: {len(df)}')
+    grpby = list(set(df.columns.tolist()) - {'path', 'version', 'dcpp_init_year'})
     groups = df.groupby(grpby)
 
     @dask.delayed
@@ -120,6 +121,7 @@ def _pick_latest_version(df):
 
     idx_to_remove = list(itertools.chain(*idx_to_remove))
     df = df.drop(index=idx_to_remove)
+    print(f'Dataframe size after picking latest version: {len(df)}')
     print('\nDone....\n')
     return df
 
