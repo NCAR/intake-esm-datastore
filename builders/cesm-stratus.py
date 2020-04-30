@@ -32,7 +32,7 @@ def build_catalog(fs, bucket='ncar-cesm-lens'):
             }
             entries.append(entry)
         except Exception:
-            print('Unexpected Zarr filename syntax: "' + store + '"')
+            print('Unexpected Zarr store syntax: "' + store + '", skipping...')
             continue
 
     df = pd.DataFrame(entries)
