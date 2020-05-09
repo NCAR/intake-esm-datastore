@@ -1,6 +1,7 @@
 {
   "esmcat_version": "0.1.0",
   "id": "glade-cmip6",
+  "last_updated": "2020-05-09T10:00:51.117Z",
   "description": "This is an ESM collection for CMIP6 data accessible on the NCAR's GLADE disk storage system in /glade/collections/cmip/CMIP6",
   "catalog_file": "/glade/collections/cmip/catalog/intake-esm-datastore/catalogs/glade-cmip6.csv.gz",
   "attributes": [
