@@ -116,12 +116,9 @@ def common_parser(filepath, local_attrs, glob_attrs):
         for gv in glob_attrs.keys():
             fileparts[gv] = glob_attrs[gv]
         # add the keys that are common just to the particular glob string
-        for lv in local_attrs.keys():
-            if 'glob_string' not in v:
-                fileparts[lv] = local_attrs[lv]
+        fileparts.update(local_attrs[filepath])
     except Exception:
         pass
-
     return fileparts
 
 def build_df(
@@ -138,24 +135,40 @@ def build_df(
     if verify(input_yaml):
         # loop over datasets
         df_parts = []
+        entries = {}
         for dataset in input_yaml.keys():
             ds_globals = {}
             # get a list of keys that are common to all files in the dataset
             for g in input_yaml[dataset].keys():
-                if 'data_sources' not in g:
+                if 'data_sources' not in g and 'ensemble' not in g:
                     ds_globals[g] = input_yaml[dataset][g]
+            # loop over ensemble members, if they exist
+            if 'ensemble' in input_yaml[dataset].keys():
+                for member in input_yaml[dataset]['ensemble']:
+                    filelist = get_asset_list(member['glob_string'], depth=0) 
+                    member.pop('glob_string')
+                    for f in filelist:
+                        entries[f] = member
             # loop over all of the data_sources for the dataset, create a dataframe
             # for each data_source, append that dataframe to a list that will contain
             # the full dataframe (or catalog) based on everything in the yaml file.
-            for stream_info in input_yaml[dataset]['data_sources']:
+            #for stream_info in input_yaml[dataset]['data_sources']:
+            for i,stream_info in enumerate(input_yaml[dataset]['data_sources']):
                 filelist = get_asset_list(stream_info['glob_string'], depth=0)
+                stream_info.pop('glob_string')
+                for f in filelist:
+                    if f in entries.keys():
+                        entries[f].update(stream_info)
+                    else:
+                        entries[f] = stream_info
                 if columns is None:
                     columns = []
                 b = Builder(columns, exclude_patterns)
-                df_parts.append(b(filelist, parser, d=stream_info, g=ds_globals))
-        # create the combined dataframe from all of the data_sources and datasets from
-        # the yaml file
-        df = pd.concat(df_parts,sort=False)
+                df_parts.append(b(filelist, parser, d=entries, g=ds_globals))
+                # create the combined dataframe from all of the data_sources and datasets from
+                # the yaml file
+                df = pd.concat(df_parts,sort=False)
+        print(df)
         return df.sort_values(by=['path'])
     else:
         print("ERROR: yaml file is not formatted correctly.  See above errors for more information.")
