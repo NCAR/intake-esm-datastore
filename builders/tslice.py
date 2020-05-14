@@ -153,7 +153,7 @@ def build_df(
             # for each data_source, append that dataframe to a list that will contain
             # the full dataframe (or catalog) based on everything in the yaml file.
             #for stream_info in input_yaml[dataset]['data_sources']:
-            for i,stream_info in enumerate(input_yaml[dataset]['data_sources']):
+            for stream_info in input_yaml[dataset]['data_sources']:
                 filelist = get_asset_list(stream_info['glob_string'], depth=0)
                 stream_info.pop('glob_string')
                 for f in filelist:
