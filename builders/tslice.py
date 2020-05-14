@@ -157,10 +157,7 @@ def build_df(
                 filelist = get_asset_list(stream_info['glob_string'], depth=0)
                 stream_info.pop('glob_string')
                 for f in filelist:
-                    if f in entries.keys():
-                        entries[f].update(stream_info)
-                    else:
-                        entries[f] = stream_info
+                    entries[f].update(stream_info)
                 if columns is None:
                     columns = []
                 b = Builder(columns, exclude_patterns)
