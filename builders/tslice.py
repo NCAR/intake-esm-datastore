@@ -135,7 +135,7 @@ def build_df(
     if verify(input_yaml):
         # loop over datasets
         df_parts = []
-        entries = {}
+        entries = defaultdict(dict)
         for dataset in input_yaml.keys():
             ds_globals = {}
             # get a list of keys that are common to all files in the dataset
