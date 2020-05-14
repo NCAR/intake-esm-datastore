@@ -145,8 +145,8 @@ def build_df(
             # loop over ensemble members, if they exist
             if 'ensemble' in input_yaml[dataset].keys():
                 for member in input_yaml[dataset]['ensemble']:
-                    filelist = get_asset_list(member['glob_string'], depth=0) 
-                    member.pop('glob_string')
+                    glob_string = member.pop('glob_string')
+                    filelist = get_asset_list(glob_string, depth=0) 
                     for f in filelist:
                         entries[f] = member
             # loop over all of the data_sources for the dataset, create a dataframe
