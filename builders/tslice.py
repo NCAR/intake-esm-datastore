@@ -148,7 +148,7 @@ def build_df(
                     glob_string = member.pop('glob_string')
                     filelist = get_asset_list(glob_string, depth=0) 
                     for f in filelist:
-                        entries[f] = member
+                        entries[f].update(member)
             # loop over all of the data_sources for the dataset, create a dataframe
             # for each data_source, append that dataframe to a list that will contain
             # the full dataframe (or catalog) based on everything in the yaml file.
