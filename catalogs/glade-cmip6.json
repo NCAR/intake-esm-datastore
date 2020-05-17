@@ -1,7 +1,7 @@
 {
   "esmcat_version": "0.1.0",
   "id": "glade-cmip6",
-  "last_updated": "2020-05-09T10:00:51.117Z",
+  "last_updated": "2020-05-17T14:28:00Z",
   "description": "This is an ESM collection for CMIP6 data accessible on the NCAR's GLADE disk storage system in /glade/collections/cmip/CMIP6",
   "catalog_file": "/glade/collections/cmip/catalog/intake-esm-datastore/catalogs/glade-cmip6.csv.gz",
   "attributes": [
@@ -31,19 +31,10 @@
       "column_name": "grid_label",
       "vocabulary": "https://raw.githubusercontent.com/WCRP-CMIP/CMIP6_CVs/master/CMIP6_grid_label.json"
     },
-    {
-      "column_name": "version",
-      "vocabulary": ""
-    },
-    {
-      "column_name": "dcpp_start_year",
-      "vocabulary": ""
-    }
+    { "column_name": "version", "vocabulary": "" },
+    { "column_name": "dcpp_start_year", "vocabulary": "" }
   ],
-  "assets": {
-    "column_name": "path",
-    "format": "netcdf"
-  },
+  "assets": { "column_name": "path", "format": "netcdf" },
   "aggregation_control": {
     "variable_column_name": "variable_id",
     "groupby_attrs": [
@@ -55,10 +46,7 @@
       "grid_label"
     ],
     "aggregations": [
-      {
-        "type": "union",
-        "attribute_name": "variable_id"
-      },
+      { "type": "union", "attribute_name": "variable_id" },
       {
         "type": "join_existing",
         "attribute_name": "time_range",
