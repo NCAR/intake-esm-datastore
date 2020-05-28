@@ -1,0 +1,9 @@
+experiment: 
+    ensemble: list(include('ensembleL'), required=False)
+    data_sources: list(include('data_sourcesL'))
+---
+ensembleL:
+    glob_string: str()
+data_sourcesL:
+    glob_string: str()
+

@@ -1,6 +1,7 @@
 import os
 import sys
 from collections import OrderedDict
+from collections import defaultdict
 
 import pandas as pd
 import yaml
@@ -117,6 +118,7 @@ def common_parser(filepath, local_attrs, glob_attrs):
             fileparts[gv] = glob_attrs[gv]
         # add the keys that are common just to the particular glob string
         fileparts.update(local_attrs[filepath])
+        d.close()
     except Exception:
         pass
     return fileparts
