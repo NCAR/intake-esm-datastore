@@ -133,20 +133,40 @@ def build_df(
     
     with open(yaml_path,'r') as f:
         input_yaml = yaml.safe_load(f)  
+
     # verify the format is correct
-    if verify(input_yaml):
+    yaml_ok = False
+    try:
+        import yamale
+        print("Validating yaml file with yamale.")
+        schema = yamale.make_schema('./generic_schema.yaml')
+        data = yamale.make_data(yaml_path)
+        try:
+            yamale.validate(schema,data)
+            yaml_ok = True
+            print('Validation success! 👍')
+        except ValueError as e:
+            yaml_ok = False
+            print("Yamale found that your file, "+yaml_path+" is not formatted correctly.")
+            print(e) 
+    except ImportError:
+        print("Validating yaml file internally.")
+        yaml_ok = verify(input_yaml)
+    print(input_yaml)
+    if yaml_ok:
         # loop over datasets
         df_parts = []
         entries = defaultdict(dict)
-        for dataset in input_yaml.keys():
+        #for dataset in input_yaml.keys():
+        for dataset in input_yaml['catalog']:
             ds_globals = {}
             # get a list of keys that are common to all files in the dataset
-            for g in input_yaml[dataset].keys():
+            for g in dataset.keys():
                 if 'data_sources' not in g and 'ensemble' not in g:
-                    ds_globals[g] = input_yaml[dataset][g]
+                    ds_globals[g] = dataset[g]
             # loop over ensemble members, if they exist
-            if 'ensemble' in input_yaml[dataset].keys():
-                for member in input_yaml[dataset]['ensemble']:
+            if 'ensemble' in dataset.keys():
+                for member in dataset['ensemble']:
                     glob_string = member.pop('glob_string')
                     filelist = get_asset_list(glob_string, depth=0) 
                     for f in filelist:
@@ -154,7 +174,7 @@ def build_df(
             # loop over all of the data_sources for the dataset, create a dataframe
             # for each data_source, append that dataframe to a list that will contain
             # the full dataframe (or catalog) based on everything in the yaml file.
-            for stream_info in input_yaml[dataset]['data_sources']:
+            for stream_info in dataset['data_sources']:
                 filelist = get_asset_list(stream_info['glob_string'], depth=0)
                 stream_info.pop('glob_string')
                 for f in filelist:
@@ -166,7 +186,7 @@ def build_df(
                 # create the combined dataframe from all of the data_sources and datasets from
                 # the yaml file
                 df = pd.concat(df_parts,sort=False)
-        print(df)
+        print(df.columns)
         return df.sort_values(by=['path'])
     else:
         print("ERROR: yaml file is not formatted correctly.  See above errors for more information.")
