@@ -66,25 +66,40 @@ def write_json(cols, csv_filepath, yaml_path):
         json.dump(od,f,indent=4)
 
 
-def verify(input_yaml):
+def validate(input_yaml):
     # verify that we're working with a dictionary
     if not isinstance(input_yaml,dict):
         print("ERROR: The experiment/dataset top level is not a dictionary. Make sure you follow the correct format.")
         return False
-    for dataset in input_yaml.keys():
+    # verify that the first line is 'catalog:' and it only appears once in the yaml file
+    if len(input_yaml.keys()) !=1 or 'catalog' not in input_yaml.keys():
+        print("ERROR: The first line in the yaml file must be 'catalog:' and it should only appear once.")
+        return False 
+    for dataset in input_yaml['catalog']:
         # check to see if there is a data_sources key for each dataset
-        if 'data_sources' not in input_yaml[dataset].keys():
-            print("ERROR: Each experiment/dataset must have the key 'data_sources'. Verify "+dataset+" contains this key.")
+        if 'data_sources' not in dataset.keys():
+            print("ERROR: Each experiment/dataset must have the key 'data_sources'.")
             return False
         # verify that we're working with a list at this level
-        if not isinstance(input_yaml[dataset]['data_sources'],list):
-            print("ERROR: The data_sources are not in a list.  Make sure you follow the correct format.")
+        if not isinstance(dataset['data_sources'],list):
+            print("ERROR: The data_source entries are not in a list.  Make sure you follow the correct format.")
             return False
-        for stream_info in input_yaml[dataset]['data_sources']:
+        for stream_info in dataset['data_sources']:
             # check to make sure that there's a 'glob_string' key for each data_source
             if 'glob_string' not in stream_info.keys():
-                print("ERROR: Each data_source must contain a 'glob_string' key.  Verify that all data_sources under "+dataset+" contain a 'glob_string' key.")
+                print("ERROR: Each data_source must contain a 'glob_string' key.")
                 return False
+        # ensemble is an option, but we still need to verify that it meets the rules if it is added
+        if 'ensemble' in dataset.keys():
+            # verify that we're working with a list at this level
+            if not isinstance(dataset['ensemble'],list):
+                print("ERROR: The ensemble entries are not in a list.  Make sure you follow the correct format.")
+                return False
+            for stream_info in dataset['ensemble']:
+                # check to make sure that there's a 'glob_string' key for each ensemble entry
+                if 'glob_string' not in stream_info.keys():
+                    print("ERROR: Each ensemble must contain a 'glob_string' key.")
+                    return False
     return True
 
 
@@ -151,8 +166,8 @@ def build_df(
             print(e) 
     except ImportError:
         print("Validating yaml file internally.")
-        yaml_ok = verify(input_yaml)
-    print(input_yaml)
+        yaml_ok = validate(input_yaml)
+
     if yaml_ok:
         # loop over datasets
         df_parts = []
@@ -186,6 +201,7 @@ def build_df(
                 # create the combined dataframe from all of the data_sources and datasets from
                 # the yaml file
                 df = pd.concat(df_parts,sort=False)
+        print("Columns in dataframe:")
         print(df.columns)
         return df.sort_values(by=['path'])
     else:
