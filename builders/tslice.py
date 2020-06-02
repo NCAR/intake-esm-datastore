@@ -132,7 +132,24 @@ def common_parser(filepath, local_attrs, glob_attrs):
         for gv in glob_attrs.keys():
             fileparts[gv] = glob_attrs[gv]
         # add the keys that are common just to the particular glob string
-        fileparts.update(local_attrs[filepath])
+        #fileparts.update(local_attrs[filepath])
+        for lv in local_attrs[filepath].keys():
+            if '<<' in local_attrs[filepath][lv]:
+                for v in fileparts['variable']:
+                    if lv not in fileparts.keys():
+                        fileparts[lv] = []
+                    if hasattr(d.variables[v], lv):
+                        fileparts[lv].append(getattr(d.variables[v], lv))
+                    else:
+                        fileparts[lv].append('None') 
+            elif '<' in local_attrs[filepath][lv]:
+                k = local_attrs[filepath][lv].replace('<','').replace('>','')
+                if hasattr(d, k):
+                    fileparts[lv] = getattr(d, k)
+                else:
+                    fileparts[lv] = 'None' 
+            else:
+                fileparts[lv] = local_attrs[filepath][lv]
         d.close()
     except Exception:
         pass
