@@ -16,6 +16,8 @@
     { "column_name": "grid", "vocabulary": "" },
     { "column_name": "biascorrection", "vocabulary": "" },
     { "column_name": "common", "vocabulary": "" }
+    { "column_name": "long_name", "vocabulary": "" }
+    { "column_name": "units", "vocabulary": "" }
   ],
   "aggregation_control": {
     "variable_column_name": "variable",
