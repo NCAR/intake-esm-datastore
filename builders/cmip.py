@@ -1,11 +1,9 @@
 import os
 
 import click
-import dask
 import numpy as np
 import requests
 from core import Builder, extract_attr_with_regex, get_asset_list, reverse_filename_format
-from dask.diagnostics import ProgressBar
 
 
 def cmip6_parser(filepath):
@@ -27,14 +25,17 @@ def cmip6_parser(filepath):
                                 <variable_id>/
                                     <grid_label>/
                                         <version>
-    file name = <variable_id>_<table_id>_<source_id>_<experiment_id >_<member_id>_<grid_label>[_<time_range>].nc For time-invariant fields, the last segment (time_range) above is omitted. Example when there is no sub-experiment: tas_Amon_GFDL-CM4_historical_r1i1p1f1_gn_196001-199912.nc Example with a sub-experiment: pr_day_CNRM-CM6-1_dcppA-hindcast_s1960-r2i1p1f1_gn_198001-198412.nc
+    file name=<variable_id>_<table_id>_<source_id>_<experiment_id >_<member_id>_<grid_label>[_<time_range>].nc
+    For time-invariant fields, the last segment (time_range) above is omitted.
+    Example when there is no sub-experiment: tas_Amon_GFDL-CM4_historical_r1i1p1f1_gn_196001-199912.nc
+    Example with a sub-experiment: pr_day_CNRM-CM6-1_dcppA-hindcast_s1960-r2i1p1f1_gn_198001-198412.nc
     """
     basename = os.path.basename(filepath)
-    filename_template = '{variable_id}_{table_id}_{source_id}_{experiment_id}_{member_id}_{grid_label}_{time_range}.nc'
-
-    gridspec_template = (
-        '{variable_id}_{table_id}_{source_id}_{experiment_id}_{member_id}_{grid_label}.nc'
+    filename_template = (
+        '{variable_id}_{table_id}_{source_id}_{experiment_id}_{member_id}_{grid_label}_{time_range}.nc'
     )
+
+    gridspec_template = '{variable_id}_{table_id}_{source_id}_{experiment_id}_{member_id}_{grid_label}.nc'
     templates = [filename_template, gridspec_template]
     fileparts = reverse_filename_format(basename, templates=templates)
     try:
@@ -62,7 +63,7 @@ def cmip6_parser(filepath):
 
 
 def cmip5_parser(filepath):
-    """ Extract attributes of a file using information from CMIP5 DRS.
+    """Extract attributes of a file using information from CMIP5 DRS.
     Notes
     -----
     Reference:
@@ -75,9 +76,7 @@ def cmip5_parser(filepath):
 
     file_basename = os.path.basename(filepath)
 
-    filename_template = (
-        '{variable}_{mip_table}_{model}_{experiment}_{ensemble_member}_{temporal_subset}.nc'
-    )
+    filename_template = '{variable}_{mip_table}_{model}_{experiment}_{ensemble_member}_{temporal_subset}.nc'
     gridspec_template = '{variable}_{mip_table}_{model}_{experiment}_{ensemble_member}.nc'
 
     templates = [filename_template, gridspec_template]
@@ -105,20 +104,16 @@ def _pick_latest_version(df):
 
     print(f'Dataframe size before picking latest version: {len(df)}')
     grpby = list(set(df.columns.tolist()) - {'path', 'version', 'dcpp_init_year'})
-    groups = df.groupby(grpby)
+    grouped = df.groupby(grpby)
 
-    @dask.delayed
     def _pick_latest_v(group):
         idx = []
         if group.version.nunique() > 1:
             idx = group.sort_values(by=['version'], ascending=False).index[1:].values.tolist()
         return idx
 
-    idx_to_remove = [_pick_latest_v(group) for _, group in groups]
     print('Getting latest version...\n')
-    with ProgressBar():
-        idx_to_remove = dask.compute(*idx_to_remove)
-
+    idx_to_remove = grouped.apply(_pick_latest_v).tolist()
     idx_to_remove = list(itertools.chain(*idx_to_remove))
     df = df.drop(index=idx_to_remove)
     print(f'Dataframe size after picking latest version: {len(df)}')
@@ -188,9 +183,7 @@ def build_cmip(
 
 
 @click.command()
-@click.option(
-    '--root-path', type=click.Path(exists=True), help='Root path of the CMIP project output.'
-)
+@click.option('--root-path', type=click.Path(exists=True), help='Root path of the CMIP project output.')
 @click.option(
     '-d',
     '--depth',
@@ -211,9 +204,7 @@ def build_cmip(
 def cli(root_path, depth, pick_latest_version, cmip_version, csv_filepath):
 
     if cmip_version not in set([5, 6]):
-        raise ValueError(
-            f'cmip_version = {cmip_version} is not valid. Valid options include: 5 and 6.'
-        )
+        raise ValueError(f'cmip_version = {cmip_version} is not valid. Valid options include: 5 and 6.')
 
     if csv_filepath is None:
         raise ValueError("Please provide csv-filepath. e.g.: './cmip5.csv.gz'")
