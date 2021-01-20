@@ -26,13 +26,13 @@ foreach i (`cat files`)
 end
 
 
-cut -f 6 -d , components | sed -e "s/NAM-\(11\|22\|44\)//; s/i/common/" > common
+# cut -f 6 -d , components | sed -e "s/NAM-\(11\|22\|44\)//; s/i/common/" > common
 
 set f = glade-na-cordex.csv
 
-echo "path,variable,scenario,driver,rcm,frequency,grid,bias_correction,common,long_name,units" > $f
+echo "path,variable,scenario,driver,rcm,frequency,grid,bias_correction,long_name,units" > $f
 
-paste -d , components common long_names units files >> $f
+paste -d , components long_names units files >> $f
 
 gzip $f
 
