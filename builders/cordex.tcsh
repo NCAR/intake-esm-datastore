@@ -25,14 +25,15 @@ foreach i (`cat files`)
   ncdump -h $i | grep ${var}:units | cut -f 2 -d \" >> units
 end
 
+cat components | sed "c 1" > vertical_levels
 
 # cut -f 6 -d , components | sed -e "s/NAM-\(11\|22\|44\)//; s/i/common/" > common
 
 set f = glade-na-cordex.csv
 
-echo "path,variable,scenario,driver,rcm,frequency,grid,bias_correction,long_name,units" > $f
+echo "variable,scenario,driver,rcm,frequency,grid,bias_correction,long_name,units,vertical_levels,path" > $f
 
-paste -d , components long_names units files >> $f
+paste -d , components long_names units vertical_levels files >> $f
 
 gzip $f
 
