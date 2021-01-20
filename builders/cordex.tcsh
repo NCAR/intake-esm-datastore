@@ -21,7 +21,7 @@ cat files | xargs basename -a -s .nc | tr . , > components
 touch longnames units
 foreach i (`cat files`)
   set var = `basename $i | cut -f 1 -d .`
-  ncdump -h $i | grep ${var}:long_name | cut -f 2 -d \" >> longnames
+  ncdump -h $i | grep ${var}:long_name | cut -f 2 -d \" >> long_names
   ncdump -h $i | grep ${var}:units | cut -f 2 -d \" >> units
 end
 
@@ -30,9 +30,9 @@ cut -f 6 -d , components | sed -e "s/NAM-\(11\|22\|44\)//; s/i/common/" > common
 
 set f = glade-na-cordex.csv
 
-echo "path,variable,scenario,driver,rcm,frequency,grid,biascorrection,common,longname,units" > $f
+echo "path,variable,scenario,driver,rcm,frequency,grid,bias_correction,common,long_name,units" > $f
 
-paste -d , files components common longnames units >> $f
+paste -d , components common long_names units files >> $f
 
 gzip $f
 
