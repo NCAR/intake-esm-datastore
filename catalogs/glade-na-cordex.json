@@ -8,23 +8,24 @@
     "format": "netcdf"
   },
   "attributes": [
-    { "column_name": "variable", "vocabulary": "" },
-    { "column_name": "scenario", "vocabulary": "" },
-    { "column_name": "driver", "vocabulary": "" },
-    { "column_name": "rcm", "vocabulary": "" },
-    { "column_name": "frequency", "vocabulary": "" },
-    { "column_name": "grid", "vocabulary": "" },
-    { "column_name": "biascorrection", "vocabulary": "" },
-    { "column_name": "common", "vocabulary": "" }
-    { "column_name": "long_name", "vocabulary": "" }
-    { "column_name": "units", "vocabulary": "" }
+    { "column_name": "variable",        "vocabulary": "" },
+    { "column_name": "scenario",        "vocabulary": "" },
+    { "column_name": "driver",          "vocabulary": "" },
+    { "column_name": "rcm",             "vocabulary": "" },
+    { "column_name": "frequency",       "vocabulary": "" },
+    { "column_name": "grid",            "vocabulary": "" },
+    { "column_name": "bias_correction", "vocabulary": "" },
+    { "column_name": "long_name",       "vocabulary": "" },
+    { "column_name": "units",           "vocabulary": "" },
+    { "column_name": "standard_name",   "vocabulary": "" },
+    { "column_name": "vertical_levels", "vocabulary": "" },
+    { "column_name": "member_id",       "vocabulary": "" },
+    { "column_name": "source",          "vocabulary": "" }
   ],
   "aggregation_control": {
     "variable_column_name": "variable",
     "groupby_attrs": [
       "scenario",
-      "driver",
-      "rcm",
       "frequency",
       "grid",
       "biascorrection"
@@ -33,6 +34,14 @@
       {
         "type": "union",
         "attribute_name": "variable"
+      },
+      {
+        "type": "join_new",
+        "attribute_name": "member_id",
+        "options": {
+            "coords": "minimal",
+            "compat": "override"
+        }
       }
     ]
   }
