@@ -28,13 +28,15 @@ end
 
 cat components | sed "c 1" > vertical_levels
 
-# cut -f 6 -d , components | sed -e "s/NAM-\(11\|22\|44\)//; s/i/common/" > common
+cut -f 3,4 -d , components | tr , . > member_id
+cut -f 2,3,4,7 -d , components | tr , ' ' | awk '{print $4,$3,$2,$1}' > source
+
 
 set f = glade-na-cordex.csv
 
-echo "variable,scenario,driver,rcm,frequency,grid,bias_correction,long_name,units,standard_name,vertical_levels,path" > $f
+echo "variable,scenario,driver,rcm,frequency,grid,bias_correction,long_name,units,standard_name,vertical_levels,member_id,source,path" > $f
 
-paste -d , components long_name units standard_name vertical_levels files >> $f
+paste -d , components long_name units standard_name vertical_levels member_id source files >> $f
 
 gzip $f
 
