@@ -18,11 +18,12 @@ end
 
 cat files | xargs basename -a -s .nc | tr . , > components
 
-touch longnames units
+touch long_name units standard_name
 foreach i (`cat files`)
   set var = `basename $i | cut -f 1 -d .`
-  ncdump -h $i | grep ${var}:long_name | cut -f 2 -d \" >> long_names
+  ncdump -h $i | grep ${var}:long_name | cut -f 2 -d \" >> long_name
   ncdump -h $i | grep ${var}:units | cut -f 2 -d \" >> units
+  ncdump -h $i | grep ${var}:standard_name | cut -f 2 -d \" >> standard_name
 end
 
 cat components | sed "c 1" > vertical_levels
@@ -31,9 +32,9 @@ cat components | sed "c 1" > vertical_levels
 
 set f = glade-na-cordex.csv
 
-echo "variable,scenario,driver,rcm,frequency,grid,bias_correction,long_name,units,vertical_levels,path" > $f
+echo "variable,scenario,driver,rcm,frequency,grid,bias_correction,long_name,units,standard_name,vertical_levels,path" > $f
 
-paste -d , components long_names units vertical_levels files >> $f
+paste -d , components long_name units standard_name vertical_levels files >> $f
 
 gzip $f
 
