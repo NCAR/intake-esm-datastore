@@ -1,0 +1,48 @@
+{
+  "esmcat_version": "0.1.0",
+  "id": "glade-na-cordex",
+  "description": "This is an ESM collection for NA-CORDEX data accessible on NCAR's GLADE disk storage system in /glade/collections/cdg/data/cordex/data",
+  "catalog_file": "./glade-na-cordex.csv.gz",
+  "assets": {
+    "column_name": "path",
+    "format": "netcdf"
+  },
+  "attributes": [
+    { "column_name": "variable",        "vocabulary": "" },
+    { "column_name": "scenario",        "vocabulary": "" },
+    { "column_name": "driver",          "vocabulary": "" },
+    { "column_name": "rcm",             "vocabulary": "" },
+    { "column_name": "frequency",       "vocabulary": "" },
+    { "column_name": "grid",            "vocabulary": "" },
+    { "column_name": "bias_correction", "vocabulary": "" },
+    { "column_name": "long_name",       "vocabulary": "" },
+    { "column_name": "units",           "vocabulary": "" },
+    { "column_name": "standard_name",   "vocabulary": "" },
+    { "column_name": "vertical_levels", "vocabulary": "" },
+    { "column_name": "member_id",       "vocabulary": "" },
+    { "column_name": "source",          "vocabulary": "" }
+  ],
+  "aggregation_control": {
+    "variable_column_name": "variable",
+    "groupby_attrs": [
+      "scenario",
+      "frequency",
+      "grid",
+      "biascorrection"
+    ],
+    "aggregations": [
+      {
+        "type": "union",
+        "attribute_name": "variable"
+      },
+      {
+        "type": "join_new",
+        "attribute_name": "member_id",
+        "options": {
+            "coords": "minimal",
+            "compat": "override"
+        }
+      }
+    ]
+  }
+}
