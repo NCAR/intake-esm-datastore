@@ -1,4 +1,4 @@
-frequency,variable,scenario,grid,biascorrection,member_id,rcm,gcm,path
+frequency,variable,scenario,grid,biascorrection,member_id,gcm,rcm,path
 day,hurs,eval,NAM-22i,raw,ERA-Int.CRCM5-UQAM,ERA-Int,CRCM5-UQAM,s3://ncar-na-cordex/day/hurs.eval.day.NAM-22i.raw.zarr
 day,hurs,eval,NAM-22i,raw,ERA-Int.CRCM5-OUR,ERA-Int,CRCM5-OUR,s3://ncar-na-cordex/day/hurs.eval.day.NAM-22i.raw.zarr
 day,hurs,eval,NAM-22i,raw,ERA-Int.RegCM4,ERA-Int,RegCM4,s3://ncar-na-cordex/day/hurs.eval.day.NAM-22i.raw.zarr
