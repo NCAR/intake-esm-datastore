@@ -5,6 +5,14 @@
   "catalog_file": "https://ncar-na-cordex.s3-us-west-2.amazonaws.com/catalogs/aws-na-cordex.csv",
   "attributes": [
     {
+      "column_name": "variable",
+      "vocabulary": "https://na-cordex.org/variable-list.html"
+    },
+    {
+      "column_name": "standard_name",
+      "vocabulary": "http://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html"
+    },
+    {
       "column_name": "long_name",
       "vocabulary": "https://na-cordex.org/variable-list.html"
     },
@@ -13,16 +21,20 @@
       "vocabulary": "https://www.unidata.ucar.edu/software/udunits/"
     },
     {
-      "column_name": "standard_name",
-      "vocabulary": "http://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html"
-    },
-    {
       "column_name": "spatial_domain",
       "vocabulary": "http://cfconventions.org/Data/cf-standard-names/docs/standardized-region-names.html"
     },
     {
-      "column_name": "vertical_levels",
-      "vocabulary": "Number of vertical levels"
+      "column_name": "grid",
+      "vocabulary": "https://na-cordex.org/dataset-description.html"
+    },
+    {
+      "column_name": "spatial_resolution",
+      "vocabulary": "https://na-cordex.org/dataset-description.html"
+    },
+    {
+      "column_name": "scenario",
+      "vocabulary": "https://na-cordex.org/dataset-description.html"
     },
     {
       "column_name": "start_time",
@@ -33,32 +45,20 @@
       "vocabulary": "ISO 8601"
     },
     {
-      "column_name": "model",
-      "vocabulary": "https://na-cordex.org/simulation-matrix.html"
-    },
-    {
       "column_name": "frequency",
       "vocabulary": "https://na-cordex.org/variable-list.html"
     },
     {
-      "column_name": "variable",
-      "vocabulary": "https://na-cordex.org/variable-list.html"
-    },
-    {
-      "column_name": "scenario",
-      "vocabulary": "https://na-cordex.org/dataset-description.html"
-    },
-    {
-      "column_name": "grid",
-      "vocabulary": "https://na-cordex.org/dataset-description.html"
+      "column_name": "vertical_levels",
+      "vocabulary": "Number of vertical levels"
     },
     {
       "column_name": "bias_correction",
       "vocabulary": "https://na-cordex.org/dataset-description.html"
     },
     {
-      "column_name": "spatial_resolution",
-      "vocabulary": "https://na-cordex.org/dataset-description.html"
+      "column_name": "na-cordex-models",
+      "vocabulary": "https://na-cordex.org/simulation-matrix.html"
     }
   ],
   "assets": {
