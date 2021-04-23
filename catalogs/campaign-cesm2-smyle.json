@@ -1,0 +1,115 @@
+{
+  "esmcat_version": "0.0.1",
+  "id": "campaign-cesm2-smyle",
+  "description": "Seasonal-to-Multiyear Large Ensemble (SMYLE) using CESM2",
+  "last_updated": "2021-04-23T19:01:00Z",
+  "attributes": [
+    {
+      "column_name": "component",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "case",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "experiment",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "variable",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "long_name",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "frequency",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "stream",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "member_id",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "init_year",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "init_month",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "vertical_levels",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "units",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "spatial_domain",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "grid",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "start_time",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "end_time",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "path",
+      "vocabulary": ""
+    }
+  ],
+  "assets": {
+    "column_name": "path",
+    "format": "netcdf"
+  },
+  "aggregation_control": {
+    "variable_column_name": "variable",
+    "groupby_attrs": ["component", "experiment", "frequency"],
+    "aggregations": [
+      {
+        "type": "union",
+        "attribute_name": "variable"
+      },
+      {
+        "type": "join_new",
+        "attribute_name": "member_id",
+        "options": {
+          "coords": "minimal",
+          "compat": "override"
+        }
+      },
+      {
+        "type": "init_year",
+        "attribute_name": "init_year",
+        "options": {
+          "coords": "minimal",
+          "compat": "override"
+        }
+      },
+      {
+        "type": "init_month",
+        "attribute_name": "init_month",
+        "options": {
+          "coords": "minimal",
+          "compat": "override"
+        }
+      }
+    ]
+  },
+  "catalog_file": "campaign-cesm2-smyle.csv.gz"
+}
