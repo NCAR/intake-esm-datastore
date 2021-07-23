@@ -1,0 +1,12 @@
+variable,long_name,units,standard_name,vertical_levels,component,spatial_domain,start_time,end_time,frequency,path
+HR,total heterotrophic respiration,gC/m^2/s,unspecified,1,lnd,global,2012-01-01T06:00:00,2019-12-31T18:00:00,hourly6,s3://ncar-dart-reanalysis/hourly6/HR.zarr
+TSA,2m air temperature,K,unspecified,1,lnd,global,2012-01-01T06:00:00,2019-12-31T18:00:00,hourly6,s3://ncar-dart-reanalysis/hourly6/TSA.zarr
+EFLX_LH_TOT,total latent heat flux [+ to atm],W/m^2,unspecified,1,lnd,global,2012-01-01T06:00:00,2019-12-31T18:00:00,hourly6,s3://ncar-dart-reanalysis/hourly6/EFLX_LH_TOT.zarr
+ER,"total ecosystem respiration, autotrophic + heterotrophic",gC/m^2/s,unspecified,1,lnd,global,2012-01-01T06:00:00,2019-12-31T18:00:00,hourly6,s3://ncar-dart-reanalysis/hourly6/ER.zarr
+VS,"Meridional wind, staggered",m/s,unspecified,32,atm,global,2011-01-03T00:00:00,2019-12-30T00:00:00,weekly,s3://ncar-dart-reanalysis/weekly/VS.zarr
+PS,Surface pressure,Pa,unspecified,1,atm,global,2011-01-03T00:00:00,2019-12-30T00:00:00,weekly,s3://ncar-dart-reanalysis/weekly/PS.zarr
+Q,Specific humidity,kg/kg,unspecified,32,atm,global,2011-01-03T00:00:00,2019-12-30T00:00:00,weekly,s3://ncar-dart-reanalysis/weekly/Q.zarr
+US,"Zonal wind, staggered",m/s,unspecified,32,atm,global,2011-01-03T00:00:00,2019-12-30T00:00:00,weekly,s3://ncar-dart-reanalysis/weekly/US.zarr
+CLDICE,Grid box averaged cloud ice amount,kg/kg,unspecified,32,atm,global,2011-01-03T00:00:00,2019-12-30T00:00:00,weekly,s3://ncar-dart-reanalysis/weekly/CLDICE.zarr
+T,Temperature,K,unspecified,32,atm,global,2011-01-03T00:00:00,2019-12-30T00:00:00,weekly,s3://ncar-dart-reanalysis/weekly/T.zarr
+CLDLIQ,Grid box averaged cloud liquid amount,kg/kg,unspecified,32,atm,global,2011-01-03T00:00:00,2019-12-30T00:00:00,weekly,s3://ncar-dart-reanalysis/weekly/CLDLIQ.zarr
