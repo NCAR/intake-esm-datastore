@@ -73,11 +73,11 @@
   "aggregation_control": {
     "variable_column_name": "variable",
     "groupby_attrs": [
-      "experiment",
       "component",
-      "control_branch_year",
-      "forcing_variant",
+      "experiment",
       "stream",
+      "forcing_variant",
+      "control_branch_year",
       "variable"
     ],
     "aggregations": [
@@ -93,11 +93,8 @@
       {
         "type": "join_new",
         "attribute_name": "member_id",
-        "options": {
-          "coords": "minimal",
-          "compat": "override"
-        }
-       }
+        "options": { "coords": "minimal", "compat": "override" }
+      }
      ]
   },
   "esmcat_version": "0.0.1",
