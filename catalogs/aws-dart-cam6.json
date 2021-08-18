@@ -1,8 +1,8 @@
 {
   "esmcat_version": "0.1.0",
-  "id": "aws-dart-reanalysis",
-  "description": "This is an ESM collection for the DART Reanalysis Zarr dataset publicly available on Amazon S3 (us-west-2 region)",
-  "catalog_file": "https://ncar-dart-reanalysis.s3-us-west-2.amazonaws.com/catalogs/aws-dart-reanalysis.csv",
+  "id": "aws-dart-cam6",
+  "description": "This is an ESM collection for DART CAM6 Reanalysis Zarr dataset publicly available on Amazon S3 (us-west-2 region)",
+  "catalog_file": "https://ncar-dart-cam6.s3-us-west-2.amazonaws.com/catalogs/aws-dart-cam6.csv",
   "attributes": [
     {
       "column_name": "variable",
