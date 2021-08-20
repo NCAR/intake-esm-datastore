@@ -1,8 +1,8 @@
 variable,long_name,units,standard_name,vertical_levels,component,spatial_domain,start_time,end_time,frequency,path
 HR,total heterotrophic respiration,gC/m^2/s,unspecified,1,lnd,global,2012-01-01T06:00:00,2019-12-31T18:00:00,hourly6,s3://ncar-dart-cam6/hourly6/HR.zarr
 TSA,2m air temperature,K,air_temperature,1,lnd,global,2012-01-01T06:00:00,2019-12-31T18:00:00,hourly6,s3://ncar-dart-cam6/hourly6/TSA.zarr
-EFLX_LH_TOT,total latent heat flux [+ to atm],W/m^2,surface_upward_mass_flux_of_carbon_dioxide_expressed_as_carbon_due_to_heterotrophic_respiration,1,lnd,global,2012-01-01T06:00:00,2019-12-31T18:00:00,hourly6,s3://ncar-dart-cam6/hourly6/EFLX_LH_TOT.zarr
-ER,"total ecosystem respiration, autotrophic + heterotrophic",gC/m^2/s,unspecified,1,lnd,global,2012-01-01T06:00:00,2019-12-31T18:00:00,hourly6,s3://ncar-dart-cam6/hourly6/ER.zarr
+EFLX_LH_TOT,total latent heat flux [+ to atm],W/m^2,unspecified,1,lnd,global,2012-01-01T06:00:00,2019-12-31T18:00:00,hourly6,s3://ncar-dart-cam6/hourly6/EFLX_LH_TOT.zarr
+ER,"total ecosystem respiration, autotrophic + heterotrophic",gC/m^2/s,surface_upward_mass_flux_of_carbon_dioxide_expressed_as_carbon_due_to_heterotrophic_respiration,1,lnd,global,2012-01-01T06:00:00,2019-12-31T18:00:00,hourly6,s3://ncar-dart-cam6/hourly6/ER.zarr
 VS,"Meridional wind, staggered",m/s,northward_wind,32,atm,global,2011-01-03T00:00:00,2019-12-30T00:00:00,weekly,s3://ncar-dart-cam6/weekly/VS.zarr
 PS,Surface pressure,Pa,surface_air_pressure,1,atm,global,2011-01-03T00:00:00,2019-12-30T00:00:00,weekly,s3://ncar-dart-cam6/weekly/PS.zarr
 Q,Specific humidity,kg/kg,specific_humidity,32,atm,global,2011-01-03T00:00:00,2019-12-30T00:00:00,weekly,s3://ncar-dart-cam6/weekly/Q.zarr
