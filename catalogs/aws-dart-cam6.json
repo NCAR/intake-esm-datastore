@@ -43,7 +43,7 @@
     {
       "column_name": "frequency",
       "vocabulary": "https://na-cordex.org/variable-list.html"
-    },
+    }
   ],
   "assets": {
     "column_name": "path",
