@@ -55,7 +55,7 @@
        "variable",
        "frequency",
        "component",
-       "vertical_levels",
+       "vertical_levels"
     ],
     "aggregations": [
       {
