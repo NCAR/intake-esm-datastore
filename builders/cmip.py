@@ -103,7 +103,7 @@ def _pick_latest_version(df):
     import itertools
 
     print(f'Dataframe size before picking latest version: {len(df)}')
-    grpby = list(set(df.columns.tolist()) - {'path', 'version', 'dcpp_init_year', 'time_range'})
+    grpby = list(set(df.columns.tolist()) - {'path', 'version', 'dcpp_init_year'})
     grouped = df.groupby(grpby)
 
     def _pick_latest_v(group):
