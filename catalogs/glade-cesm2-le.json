@@ -18,18 +18,6 @@
       "vocabulary": ""
     },
     {
-      "column_name": "experiment",
-      "vocabulary": ""
-    },
-    {
-      "column_name": "forcing_variant",
-      "vocabulary": ""
-    },
-    {
-      "column_name": "control_branch_year",
-      "vocabulary": ""
-    },
-    {
       "column_name": "variable",
       "vocabulary": ""
     },
@@ -64,6 +52,26 @@
     {
       "column_name": "path",
       "vocabulary": ""
+    },
+    {
+      "column_name": "experiment",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "forcing_variant",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "cesm_member_id",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "control_branch_year",
+      "vocabulary": ""
+    },
+    {
+      "column_name": "cmip_experiment_id",
+      "vocabulary": ""
     }
   ],
   "assets": {
@@ -77,10 +85,14 @@
       "experiment",
       "stream",
       "forcing_variant",
-      "control_branch_year",
       "variable"
     ],
     "aggregations": [
+      {
+        "type": "union",
+        "attribute_name": "variable",
+        "options": null
+      },
       {
         "type": "join_existing",
         "attribute_name": "time_range",
@@ -93,12 +105,15 @@
       {
         "type": "join_new",
         "attribute_name": "member_id",
-        "options": { "coords": "minimal", "compat": "override" }
+        "options": {
+          "coords": "minimal",
+          "compat": "override"
+        }
       }
-     ]
+    ]
   },
   "esmcat_version": "0.0.1",
   "id": "glade-cesm2-le",
   "description": "ESM collection for the CESM2 LENS data stored on GLADE in /glade/campaign/cgd/cesm/CESM2-LE/timeseries",
-  "last_updated": "2021-06-17T02:58:33+00:00"
+  "last_updated": "2021-09-30T14:25:10+00:00"
 }
