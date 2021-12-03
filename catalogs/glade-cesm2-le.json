@@ -115,5 +115,5 @@
   "esmcat_version": "0.0.1",
   "id": "glade-cesm2-le",
   "description": "ESM collection for the CESM2 LENS data stored on GLADE in /glade/campaign/cgd/cesm/CESM2-LE/timeseries",
-  "last_updated": "2021-12-02T14:25:10+00:00"
+  "last_updated": "2021-12-02T20:25:10+00:00"
 }
