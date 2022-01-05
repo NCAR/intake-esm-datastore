@@ -17,8 +17,7 @@ class Builder:
 
     def _filter_func(self, filelist):
         return not any(
-            fnmatch.fnmatch(filelist, pat=exclude_pattern)
-            for exclude_pattern in self.exclude_patterns
+            fnmatch.fnmatch(filelist, pat=exclude_pattern) for exclude_pattern in self.exclude_patterns
         )
 
     def _update_dict(self, entry):

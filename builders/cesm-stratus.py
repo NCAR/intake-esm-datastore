@@ -1,3 +1,5 @@
+# import os
+
 import fsspec
 import pandas as pd
 
@@ -41,11 +43,14 @@ def build_catalog(fs, bucket='ncar-cesm-lens'):
 
 if __name__ == '__main__':
     S3_URL = 'https://stratus.ucar.edu'
-    # fs = fsspec.filesystem('s3', secret=os.environ['STRATUS_SECRET_KEY'], key=os.environ['STRATUS_ACCESS_KEY'],
-    #                        anon=False, client_kwargs={'endpoint_url':S3_URL})
-    fs = fsspec.filesystem(
-        's3', profile='stratus-cesm', anon=False, client_kwargs={'endpoint_url': S3_URL}
-    )
+    # fs = fsspec.filesystem(
+    #     's3',
+    #     secret=os.environ['STRATUS_SECRET_KEY'],
+    #     key=os.environ['STRATUS_ACCESS_KEY'],
+    #     anon=False,
+    #     client_kwargs={'endpoint_url': S3_URL},
+    # )
+    fs = fsspec.filesystem('s3', profile='stratus-cesm', anon=False, client_kwargs={'endpoint_url': S3_URL})
 
     df = build_catalog(fs)
     df.to_csv('../catalogs/stratus-cesm1-le.csv', index=False)
