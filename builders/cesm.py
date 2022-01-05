@@ -9,7 +9,9 @@ with open('cesm2_cmip6.yaml') as f:
 
 component_streams = cesm2_cmip6_definitions['component_streams']
 cesm2_cmip6_exps = CaseInsensitiveDict(cesm2_cmip6_definitions['experiments'])
-date_str_regex = r'\d{4}\-\d{4}|\d{6}\-\d{6}|\d{8}\-\d{8}|\d{10}Z\-\d{10}Z|\d{12}Z\-\d{12}Z|\d{10}\-\d{10}|\d{12}\-\d{12}'
+date_str_regex = (
+    r'\d{4}\-\d{4}|\d{6}\-\d{6}|\d{8}\-\d{8}|\d{10}Z\-\d{10}Z|\d{12}Z\-\d{12}Z|\d{10}\-\d{10}|\d{12}\-\d{12}'
+)
 
 
 def cesm2_cmip6_parser(filepath):

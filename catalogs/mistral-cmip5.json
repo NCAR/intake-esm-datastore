@@ -20,14 +20,12 @@
       "column_name": "experiment",
       "vocabulary": ""
     },
-    { "column_name": "ensemble_member",
-      "vocabulary": "" },
+    { "column_name": "ensemble_member", "vocabulary": "" },
     {
       "column_name": "mip_table",
       "vocabulary": ""
     },
-    { "column_name": "variable",
-      "vocabulary": "" },
+    { "column_name": "variable", "vocabulary": "" },
     {
       "column_name": "modeling_realm",
       "vocabulary": ""
@@ -43,12 +41,7 @@
   },
   "aggregation_control": {
     "variable_column_name": "variable",
-    "groupby_attrs": [
-      "institute",
-      "model",
-      "experiment",
-      "mip_table"
-    ],
+    "groupby_attrs": ["institute", "model", "experiment", "mip_table"],
     "aggregations": [
       {
         "type": "union",
