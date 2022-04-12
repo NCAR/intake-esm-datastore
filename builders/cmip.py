@@ -168,7 +168,7 @@ def build_cmip(
     b = Builder(columns, exclude_patterns)
     df = b(filelist, parsers[cmip_version])
 
-    if cmip_version == '6':
+    if cmip_version == '6' and "activity_id" in columns:
         # Some entries are invalid: Don't conform to the CMIP6 Data Reference Syntax
         cmip6_activity_id_url = (
             'https://raw.githubusercontent.com/WCRP-CMIP/CMIP6_CVs/master/CMIP6_activity_id.json'
